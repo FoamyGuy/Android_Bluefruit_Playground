@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PairingActivity"
+    android:background="#009ee0"
+
+    >
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:background="#0093d1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/finding_cpb"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:padding="14dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/refresh"
+        android:layout_alignTop="@id/titleTxt"
+        android:layout_alignBottom="@id/titleTxt"
+        android:layout_marginEnd="10dp"
+        android:onClick="startScan"
+        />
+
+    <TextView
+        android:id="@+id/infoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/select_device"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        android:layout_below="@id/titleTxt"
+        />
+
+    <TextView
+        android:id="@+id/scanningTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Scanning..."
+        android:textColor="#FFFFFF"
+        android:visibility="invisible"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:layout_below="@id/infoTxt"
+        />
+
+    <ListView
+        android:layout_below="@id/scanningTxt"
+        android:padding="14dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/scanResultList"
+        />
+
+</RelativeLayout>

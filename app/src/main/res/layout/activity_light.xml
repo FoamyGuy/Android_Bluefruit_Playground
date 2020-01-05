@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".ToneActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/modules"
+        android:id="@+id/backTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:background="#009ee0"
+        android:onClick="backToModulesList"
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="Light Sensor"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/backTxt"
+        android:padding="8dp"
+        android:background="#0093d1"
+
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTxt"
+        android:src="@drawable/cpb_circuit"
+        android:layout_above="@id/bottomPanel"
+        android:padding="40dp"
+        android:scaleType="centerInside"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="240dp"
+        android:id="@+id/bottomPanel"
+        android:background="#EEEEEE">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="26sp"
+            android:layout_marginTop="10dp"
+            android:textColor="#000000"
+            android:text="Luminance Reading"
+
+            />
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lightProgressContainer"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            >
+
+
+        <ImageView
+            android:id="@+id/minIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/lightsensor_min"/>
+
+        <ImageView
+            android:id="@+id/maxIcon"
+            android:layout_alignParentEnd="true"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/lightsensor_max"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignBottom="@+id/lightProgress"
+            android:layout_alignTop="@id/lightProgress"
+            android:layout_alignEnd="@id/lightProgress"
+            android:layout_alignStart="@id/lightProgress"
+            android:background="@drawable/light_scale_greyscale"
+
+            />
+        <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toEndOf="@id/minIcon"
+            android:layout_toStartOf="@id/maxIcon"
+            android:progress="0"
+            android:max="1023"
+            android:id="@+id/lightProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:progressDrawable="@drawable/light_progressbar"
+            />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/lightProgressContainer"
+            android:layout_marginBottom="40dp"
+            android:id="@+id/readoutContainer"
+            >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="30sp"
+            android:textColor="#000000"
+            android:text=""
+            android:id="@+id/lightTxt"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/lightTxt"
+            android:layout_marginLeft="6dp"
+            android:layout_alignBottom="@id/lightTxt"
+            android:layout_marginBottom="5dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:text="Light level"
+            android:id="@+id/lightTxtLbl"
+            />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".ButtonsActivity">
+
+    <TextView
+        android:id="@+id/backTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009ee0"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:paddingLeft="10dp"
+        android:text="@string/modules"
+        android:textColor="#FFFFFF"
+        android:onClick="backToModulesList"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backTxt"
+        android:background="#0093d1"
+        android:padding="8dp"
+        android:text="Button Status"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomPanel"
+        android:layout_below="@id/titleTxt"
+        android:padding="40dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/cpb_circuit" />
+
+
+    <RelativeLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/bottomPanelLbl"
+            android:layout_marginTop="10dp"
+            android:text="Buttons Pressed"
+            android:textColor="#000000"
+            android:textSize="26sp"
+
+            />
+
+
+        <ImageView
+            android:id="@+id/statusImgBtnA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:layout_below="@id/bottomPanelLbl"
+            android:src="@drawable/status_a" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statusImgBtnA"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Button A"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/statusImgBtnB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/statusImgBtnA"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="40dp"
+            android:layout_below="@id/bottomPanelLbl"
+            android:src="@drawable/status_b" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statusImgBtnB"
+            android:layout_toEndOf="@id/statusImgBtnA"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="40dp"
+            android:text="Button B"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/statusImgSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@id/statusImgBtnA"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="40dp"
+            android:layout_below="@id/bottomPanelLbl"
+            android:src="@drawable/status_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/statusImgBtnB"
+            android:layout_toStartOf="@id/statusImgBtnA"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="40dp"
+            android:text="Switch"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

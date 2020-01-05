@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AccelerometerActivity">
+
+    <TextView
+        android:id="@+id/backTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009ee0"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:paddingLeft="10dp"
+        android:text="@string/modules"
+        android:textColor="#FFFFFF"
+        android:onClick="backToModulesList"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backTxt"
+        android:background="#0093d1"
+        android:padding="8dp"
+        android:text="Accelerometer"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottomPanel"
+        android:layout_below="@id/titleTxt"
+        android:id="@+id/modelWeb"
+         />
+
+
+    <RelativeLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/bottomPanelLbl"
+            android:layout_marginTop="10dp"
+            android:text="Device Orientation"
+            android:textColor="#000000"
+            android:textSize="26sp"
+
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:id="@+id/accelPanel"
+            android:background="#DFDFDF"
+            android:layout_below="@id/bottomPanelLbl">
+
+            <TextView
+                android:id="@+id/accelLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Accelerometer (m/s):" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/accelLbl"
+                android:weightSum="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/xTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+                <TextView
+                    android:id="@+id/yTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+                <TextView
+                    android:id="@+id/zTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#DFDFDF"
+            android:id="@+id/eulerPanel"
+            android:layout_below="@id/accelPanel">
+
+            <TextView
+                android:id="@+id/eulerLbl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Euler Angles (degrees):" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/eulerLbl"
+                android:weightSum="3"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/xAngleTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+                <TextView
+                    android:id="@+id/yAngleTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+                <TextView
+                    android:id="@+id/zAngleTxt"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                     />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Define the background properties like color etc -->
+    <item android:id="@android:id/background">
+
+        <!--<rotate
+            android:fromDegrees="52"
+            android:toDegrees="45"
+            android:pivotX="-45%"
+            android:pivotY="90%" >
+
+            <shape
+                android:shape="rectangle" >
+
+                <gradient
+                    android:startColor="#000000"
+                    android:endColor="#EEEEEE"
+                    android:angle="0"
+                    />
+            </shape>
+        </rotate>-->
+
+        <!--<bitmap android:src="@drawable/light_scale_greyscale" android:tileMode="disabled"/>-->
+
+        <!--<shape>
+             <gradient
+                 android:startColor="#000001"
+                 android:endColor="#EEEEEE"
+                 android:angle="0"
+                 />
+        </shape>-->
+
+
+        <shape>
+            <gradient
+                android:startColor="#00000000"
+                android:endColor="#00EEEEEE"
+                android:angle="0"
+                />
+        </shape>
+    </item>
+
+    <!-- Define the progress properties like start color, end color etc -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <bitmap android:src="@drawable/light_scale_color" />
+            <!--<shape>
+                <gradient
+                    android:startColor="#009ee0"
+                    android:centerColor="#ffea00"
+                    android:endColor="#fe4200"
+                    android:angle="0"
+                    />
+            </shape>-->
+        </clip>
+    </item>
+</layer-list>

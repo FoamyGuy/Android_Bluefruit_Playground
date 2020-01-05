@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottomPanelLbl"
+        android:layout_marginTop="6dp"
+        android:text="Color Palette"
+        android:textColor="#000000"
+        android:textSize="26sp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/bottomPanelLbl"
+        android:layout_above="@+id/brightnessSeek"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="4dp"
+        android:weightSum="3">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ff97ad"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ffff5a"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#82ffcf"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#96e2ff"
+                android:onClick="setNeopixelColorsAdjusted" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ff5a54"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ffe000"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#49ff7b"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#43c2ff"
+                android:onClick="setNeopixelColorsAdjusted" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ff0700"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#ffb100"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#00ff07"
+                android:onClick="setNeopixelColorsAdjusted" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="6dp"
+                android:layout_weight="1"
+                android:background="#0097ff"
+                android:onClick="setNeopixelColorsAdjusted" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brightness"
+        android:layout_margin="10dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/brightnessLbl"
+        android:textSize="18sp"
+        />
+
+    <SeekBar
+        android:id="@+id/brightnessSeek"
+        android:layout_width="match_parent"
+        android:layout_toEndOf="@id/brightnessLbl"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:progressDrawable="@drawable/transparent"
+        android:thumb="@drawable/custom_thumb"
+        android:background="@drawable/bw_gradient"
+
+        android:layout_margin="10dp"
+
+        android:max="99"/>
+
+</RelativeLayout>

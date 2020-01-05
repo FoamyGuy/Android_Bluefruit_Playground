@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".TemperatureActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/modules"
+        android:id="@+id/backTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:background="#009ee0"
+        android:onClick="backToModulesList"
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="Temperature"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/backTxt"
+        android:padding="8dp"
+        android:background="#0093d1"
+
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleTxt"
+        android:background="@drawable/temp_gradient"
+        android:id="@+id/readoutContainer"
+        android:layout_above="@+id/graphContainer">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/temperatureTxt"
+            android:layout_centerInParent="true"
+            android:background="@drawable/temperature_gauge"
+            android:gravity="center"
+            android:textSize="28sp"
+            android:textColor="#FFFFFF"/>
+
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/temperature_swap"
+        android:gravity="center"
+        android:text="°F"
+        android:layout_alignBottom="@id/readoutContainer"
+        android:layout_alignEnd="@id/readoutContainer"
+        android:layout_margin="10dp"
+        android:textColor="#111111"
+        android:onClick="temperatureSwap"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:id="@+id/graphContainer"
+        android:layout_alignParentBottom="true">
+
+
+
+        <com.jjoe64.graphview.GraphView
+
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:id="@+id/temperatureGraph" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

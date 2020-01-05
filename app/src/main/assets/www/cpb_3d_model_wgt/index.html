@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>three.js webgl - loaders - Clara.io JSON loader</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<link type="text/css" rel="stylesheet" href="main.css">
+		<link rel="shortcut icon" type="image/x-icon" href="/www/cpb_3d_model_wgt/favicon.ico"/>
+        <style>
+        
+        </style>
+
+	</head>
+
+	<body>
+
+    <div id="rotation-data-holder" data-x="0" data-y="0" data-z="0"></div>
+    <script>
+    	var rotationHolder = document.getElementById("rotation-data-holder");
+
+        function setRotation(x, y, z){
+            rotationHolder.setAttribute("data-x", x/50);
+            rotationHolder.setAttribute("data-y", y/50);
+            rotationHolder.setAttribute("data-z", z/100);
+        }
+        </script>
+		<script type="module">
+
+			import * as THREE from './three.module.js';
+
+			var container;
+
+			var camera, scene, renderer;
+
+			var mouseX = 0, mouseY = 0;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+
+            var CPB_model, pivot;
+            var $rotationHolder = document.getElementById("rotation-data-holder");
+            
+			init();
+			animate();
+
+
+			function init() {
+
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 10, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.set(0,0,120);
+				camera.lookAt(new THREE.Vector3(0,-0.25,20));
+				camera.zoom = 3;
+				camera.updateProjectionMatrix();
+
+				// scene
+
+
+
+				scene = new THREE.Scene();
+                scene.background = new THREE.Color( 0x009ee0 );
+
+				var ambient = new THREE.AmbientLight( 0x444444 );
+				scene.add( ambient );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+				directionalLight.position.set( 0, 0, 1 ).normalize();
+				scene.add( directionalLight );
+                
+				// BEGIN Clara.io JSON loader code
+				var objectLoader = new THREE.ObjectLoader();
+				//objectLoader.load( "models/json/teapot-claraio.json", function ( obj ) {
+				objectLoader.load( './CPB.dae.json', function ( obj ) {
+                    CPB_model = obj
+                    CPB_model.position.y = -2.45;
+                    console.log(CPB_model);
+
+                    pivot = new THREE.Object3D();
+					pivot.add( CPB_model );
+					scene.add( pivot );
+				 	//scene.add( obj );
+
+				} );
+				// END Clara.io JSON loader code
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+
+				
+
+				//
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+				render();
+
+			}
+
+			function render() {
+                
+                pivot.rotation.x = $rotationHolder.getAttribute("data-x");
+                pivot.rotation.y = $rotationHolder.getAttribute("data-y");
+                pivot.rotation.z = $rotationHolder.getAttribute("data-z");
+				renderer.render( scene, camera );
+
+			}
+
+		</script>
+
+	</body>
+</html>

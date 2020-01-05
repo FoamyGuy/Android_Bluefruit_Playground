@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Bluefruit_Playground</string>
+    <string name="finding_cpb">Finding CPB</string>
+    <string name="select_device">Select a Circuit Playground Bluefruit device to connect to</string>
+    <string name="title_activity_tone">ToneActivity</string>
+    <string name="modules">Modules</string>
+    <string name="tone_generator">Tone Generator</string>
+    <string name="appbar_scrolling_view_behavior"></string>
+    <string name="permision_detail">Android requires applications to be granted the LOCATION permission in order to receive the results of a BLE scan. Please press the \"Okay\" button and grant the permission in order to use the Bluefruit Playground app. </string>
+    <string name="settings_detail_bluetooth">Bluetooth and Location settings must be enabled to use the Bluefruit Playground app. \n\nPlease press \"Okay\" and then turn on Bluetooth.</string>
+    <string name="settings_detail_location">Bluetooth and Location settings must be enabled to use the Bluefruit Playground app. \n\nPlease press \"Okay\" and turn the main location service switch then press the Back button.</string>
+</resources>

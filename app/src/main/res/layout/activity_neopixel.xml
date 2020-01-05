@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".NeopixelActivity">
+
+    <TextView
+        android:id="@+id/backTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009ee0"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:paddingLeft="10dp"
+        android:text="@string/modules"
+        android:textColor="#FFFFFF"
+        android:onClick="backToModulesList"
+        android:textSize="26sp" />
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backTxt"
+        android:background="#0093d1"
+        android:padding="8dp"
+        android:text="Neopixels"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        />
+
+    <include layout="@layout/layout_cpb_pixels"
+        android:layout_above="@id/bottomPanel"
+        android:layout_below="@id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cpbLayout"
+
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circuit_reset"
+        android:layout_alignBottom="@id/cpbLayout"
+        android:layout_alignEnd="@id/cpbLayout"
+        android:layout_margin="10dp"
+        android:onClick="turnOffNeopixels"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circuit_clear"
+        android:layout_alignBottom="@id/cpbLayout"
+        android:layout_alignStart="@id/cpbLayout"
+        android:layout_margin="10dp"
+        android:onClick="clearPixelSelection"
+        android:id="@+id/clearBtn"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/selectAllBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/circuit_all"
+        android:layout_above="@id/clearBtn"
+        android:layout_alignStart="@id/cpbLayout"
+        android:visibility="invisible"
+        android:layout_margin="10dp"
+        android:onClick="selectAllPixels"
+        />
+
+
+    <RelativeLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EEEEEE">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/colorPickerPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

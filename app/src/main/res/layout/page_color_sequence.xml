@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bottomPanelLbl"
+        android:layout_marginTop="6dp"
+        android:text="Light Sequence"
+        android:textColor="#000000"
+        android:textSize="26sp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/bottomPanelLbl"
+        android:orientation="vertical"
+        android:layout_above="@id/speedSeek"
+        android:weightSum="2">
+
+
+        <LinearLayout
+            android:id="@+id/firstRowLyt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:weightSum="2">
+
+            <ImageView
+                android:id="@+id/sequence1Btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:onClick="startRotationSequence"
+                android:src="@drawable/sequence1_list" />
+
+            <ImageView
+                android:id="@+id/sequence2Btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:onClick="startPulseSequence"
+                android:src="@drawable/sequence2_list" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondRowLyt"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:weightSum="2"
+
+            >
+
+            <ImageView
+                android:id="@+id/sequence3Btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="startSizzleSequence"
+                android:padding="10dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/sequence3_list" />
+
+            <ImageView
+                android:id="@+id/sequence4Btn"
+                android:layout_width="0dp"
+                android:padding="10dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="startSweepSequence"
+                android:src="@drawable/sequence4_list"
+                 />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/seekBarLbl"
+        android:layout_margin="10dp"
+        android:text="Speed"
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <SeekBar
+        android:id="@+id/speedSeek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/seekBarLbl"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:max="700" />
+
+</RelativeLayout>

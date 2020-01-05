@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_permission"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".PermissionActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="Permissions"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/backTxt"
+        android:padding="8dp"
+        android:background="#0093d1"
+
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/detailTxt"
+        android:textSize="22sp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/titleTxt"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:text="@string/permision_detail"
+        />
+
+    <Button
+        android:layout_below="@id/detailTxt"
+        android:id="@+id/okayBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="50dp"
+        android:text="Okay"
+        android:textSize="24sp"
+        android:onClick="requestPermission"
+        android:layout_centerHorizontal="true"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/okayBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:text="Exit"
+        android:textSize="22sp"
+        android:onClick="close"
+        />
+
+</RelativeLayout>

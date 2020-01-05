@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ModulesListActivity"
+    android:background="#009ee0"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disconnect"
+        android:id="@+id/backTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:background="#009ee0"
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="Modules"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/backTxt"
+        android:padding="8dp"
+        android:background="#0093d1"
+
+        />
+
+    <!--<Button
+        android:id="@+id/toneGeneratorBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tone_generator"
+        android:onClick="startToneGeneratorActivity"
+        />
+
+    <Button
+        android:id="@+id/temperatureBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toneGeneratorBtn"
+        android:text="Temperature"
+        android:onClick="startTemperatureActivity"
+        />
+
+
+    <Button
+        android:id="@+id/lightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/temperatureBtn"
+        android:text="Light Sensor"
+        android:onClick="startLightActivity"
+        />
+
+    <Button
+        android:id="@+id/buttonsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lightBtn"
+        android:text="Buttons"
+        android:onClick="startButtonsActivity"
+        />
+
+    <Button
+        android:id="@+id/accelerometerBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonsBtn"
+        android:text="Accelerometer"
+        android:onClick="startAccelerometerActivity"
+        />
+
+    <Button
+        android:id="@+id/neopixelsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/accelerometerBtn"
+        android:text="Neopixels"
+        android:onClick="startNeopixelsActivity"
+        />
+        -->
+
+    <ListView
+        android:layout_below="@id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="0dp"
+        android:divider="#00FFFFFF"
+        android:id="@+id/modulesList"/>
+
+</RelativeLayout>
