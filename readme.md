@@ -22,12 +22,17 @@ Current Known Issues / Todo list:
     - Disconnect button in top left of modules activity does nothing. Should verify with user and finish service
     - modules activity on back press should ask user if they want to finish the service
     - Service should finish itself after some time idle
+    - pairing activity list of devices should show signal strength icons instead of raw value
+
 * Accelerometer Module
     - 3D Model should allow user to manually drag to change view
     - Accelerometer activity should hide the ugly webview loading
+
 * Neopixel Module
     - Animations can sometimes continue some frames after pressing the stop icon.
     - viewpager at the bottom should have indicators
+    - Need to provide smaller cpb asset and make a layout for mdpi to fix pixel / selector checks alignment
+
 * Buttons Module
     - The switch should either get set correctly automatically on load, or de-emphasize the first change
 

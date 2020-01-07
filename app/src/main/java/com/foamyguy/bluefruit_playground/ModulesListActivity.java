@@ -64,6 +64,16 @@ public class ModulesListActivity extends Activity {
         });
     }
 
+    public void disconnectBluefruit(View view) {
+        Intent disconnectIntent = new Intent(BluefruitService.ACTION_DISCONNECT);
+        sendBroadcast(disconnectIntent);
+
+        Intent pairingIntent = new Intent(getApplicationContext(), PairingActivity.class);
+        startActivity(pairingIntent);
+        finish();
+
+    }
+
     private class CPBModule {
         String title;
         String info;

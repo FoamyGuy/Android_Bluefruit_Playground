@@ -105,6 +105,7 @@ public class BluefruitService extends Service {
 
 
     public static final String ACTION_ATTEMPT_CONNECT = "com.foamyguy.bluefruit_playground.ACTION_ATTEMPT_CONNECT";
+    public static final String ACTION_DISCONNECT = "com.foamyguy.bluefruit_playground.ACTION_DISCONNECT";
 
     public static final String ACTION_CHECK_CONNECTION = "com.foamyguy.bluefruit_playground.ACTION_CHECK_CONNECTION";
     public static final String ACTION_CHECK_CONNECTION_RESULT = "com.foamyguy.bluefruit_playground.ACTION_CHECK_CONNECTION_RESULT";
@@ -237,6 +238,8 @@ public class BluefruitService extends Service {
         bluefruitReceiverFilter.addAction(ACTION_DISABLE_ACCELEROMETER_NOTIFY);
         bluefruitReceiverFilter.addAction(ACTION_PLAY_NEOPIXEL_ANIMATION);
         bluefruitReceiverFilter.addAction(ACTION_STOP_NEOPIXEL_ANIMATION);
+        bluefruitReceiverFilter.addAction(ACTION_DISCONNECT);
+
 
         bluefruitReceiver = new BroadcastReceiver() {
             @Override
@@ -317,6 +320,13 @@ public class BluefruitService extends Service {
                 } else if (action.equals(ACTION_STOP_NEOPIXEL_ANIMATION)) {
                     Log.d(TAG, "received disable temp notify");
                     animatingNeopixels = false;
+
+                } else if (action.equals(ACTION_DISCONNECT)) {
+                    bluetoothGatt.close();
+                    Intent connectionStatusIntent = new Intent(ACTION_CONNECTION_STATUS);
+                    connectionStatusIntent.putExtra("status", STATE_DISCONNECTED);
+                    sendBroadcast(connectionStatusIntent);
+                    connectionState = STATE_DISCONNECTED;
 
                 }
             }
@@ -934,7 +944,8 @@ public class BluefruitService extends Service {
         super.onDestroy();
 
         if (null != bluetoothGatt) {
-            bluetoothGatt.disconnect();
+
+            bluetoothGatt.close();
         }
 
         unregisterReceiver(bluefruitReceiver);

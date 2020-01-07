@@ -18,6 +18,7 @@
         android:drawableLeft="@drawable/ic_back_arrow"
         android:background="#009ee0"
         android:textSize="26sp"
+        android:onClick="disconnectBluefruit"
         />
 
     <TextView
