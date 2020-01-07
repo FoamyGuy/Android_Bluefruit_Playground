@@ -178,6 +178,15 @@ public class PairingActivity extends Activity {
     }
 
     @Override
+    public void onBackPressed() {
+        Intent stopService = new Intent(BluefruitService.ACTION_STOP_SERVICE);
+        sendBroadcast(stopService);
+
+
+        finish();
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }

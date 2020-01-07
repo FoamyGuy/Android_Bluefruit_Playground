@@ -19,8 +19,6 @@ Also remember to disable Bluetooth and Location services if you aren't otherwise
 
 Current Known Issues / Todo list:
 * General
-    - Disconnect button in top left of modules activity does nothing. Should verify with user and finish service
-    - modules activity on back press should ask user if they want to finish the service
     - Service should finish itself after some time idle
     - pairing activity list of devices should show signal strength icons instead of raw value
 
@@ -36,6 +34,8 @@ Current Known Issues / Todo list:
 * Buttons Module
     - The switch should either get set correctly automatically on load, or de-emphasize the first change
 
+* Tone Module
+    - the speaker symbol should animate - big when keys are pressed, regular when released
 
 If you run across any trouble please make an issue.
 

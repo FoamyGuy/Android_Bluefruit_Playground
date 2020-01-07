@@ -154,6 +154,8 @@ public class BluefruitService extends Service {
 
     NeopixelSequence curSequence;
 
+    NotificationManager notificationManager;
+
     private BluetoothGattCharacteristic neopixelDataCharacteristic;
     BluetoothGattCharacteristic toneCharacteristic;
     BluetoothGattCharacteristic tempCharacteristic;
@@ -279,7 +281,11 @@ public class BluefruitService extends Service {
                     }
 
                 } else if (action.equals(ACTION_STOP_SERVICE)) {
-                    bluetoothGatt.disconnect();
+                    Log.d(TAG, "received stopService");
+                    if(bluetoothGatt != null) {
+                        bluetoothGatt.close();
+                    }
+                    notificationManager.cancelAll();
                     stopSelf();
                 } else if (action.equals(ACTION_CHECK_CONNECTION)) {
                     Intent checkConnResult = new Intent(ACTION_CHECK_CONNECTION_RESULT);
@@ -781,7 +787,7 @@ public class BluefruitService extends Service {
                 .setAutoCancel(true);
 
 
-        NotificationManager notificationManager =
+        notificationManager =
                 (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
