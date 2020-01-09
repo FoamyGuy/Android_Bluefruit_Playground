@@ -43,6 +43,7 @@ import com.skydoves.colorpickerview.ColorEnvelope;
 import com.skydoves.colorpickerview.ColorPickerView;
 import com.skydoves.colorpickerview.listeners.ColorEnvelopeListener;
 import com.skydoves.colorpickerview.sliders.BrightnessSlideBar;
+import com.viewpagerindicator.CirclePageIndicator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,10 +89,15 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
         colorPickerPager = findViewById(R.id.colorPickerPager);
 
+        //Bind the title indicator to the adapter
+        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.colorPickerPagerIndicator);
+
+
 
         colorPickerAdapter = new ColorPickerAdapter(this);
         colorPickerPager.setAdapter(colorPickerAdapter);
         colorPickerPager.addOnPageChangeListener(this);
+        indicator.setViewPager(colorPickerPager);
 
         selectAllImg = findViewById(R.id.selectAllBtn);
         unselectAllImg = findViewById(R.id.clearBtn);

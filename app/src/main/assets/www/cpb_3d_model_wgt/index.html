@@ -23,13 +23,16 @@
             rotationHolder.setAttribute("data-y", y/50);
             rotationHolder.setAttribute("data-z", z/100);
         }
+
+        console.log(navigator.userAgent);
         </script>
 		<script type="module">
 
 			import * as THREE from './three.module.js';
+            import * as tc from './TrackballControls.js';
 
 			var container;
-
+            var controls;
 			var camera, scene, renderer;
 
 			var mouseX = 0, mouseY = 0;
@@ -46,7 +49,11 @@
 
 
 			function init() {
-
+                
+                renderer = new THREE.WebGLRenderer();
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+                
 				container = document.createElement( 'div' );
 				document.body.appendChild( container );
 
@@ -55,6 +62,9 @@
 				camera.lookAt(new THREE.Vector3(0,-0.25,20));
 				camera.zoom = 3;
 				camera.updateProjectionMatrix();
+                
+                
+                
 
 				// scene
 
@@ -82,13 +92,17 @@
 					pivot.add( CPB_model );
 					scene.add( pivot );
 				 	//scene.add( obj );
+                    console.log(tc);
+                    console.log(tc.TrackballControls);
+                    controls = new tc.TrackballControls( camera , renderer.domElement);
+                    controls.rotateSpeed = 1.0;
+                    controls.zoomSpeed = 1.2;
+                    controls.panSpeed = 0.8;
 
 				} );
 				// END Clara.io JSON loader code
 
-				renderer = new THREE.WebGLRenderer();
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				
 				container.appendChild( renderer.domElement );
 
 				
@@ -108,12 +122,21 @@
 				camera.updateProjectionMatrix();
 
 				renderer.setSize( window.innerWidth, window.innerHeight );
+                
+                if(controls != undefined){
+                    controls.handleResize();
+                }
+
 
 			}
 
 			function animate() {
 
 				requestAnimationFrame( animate );
+                if(controls != undefined){
+                    controls.update();
+                }
+
 				render();
 
 			}

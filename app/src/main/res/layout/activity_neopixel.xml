@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:background="#009ee0"
         android:drawableLeft="@drawable/ic_back_arrow"
+        android:onClick="backToModulesList"
         android:paddingLeft="10dp"
         android:text="@string/modules"
         android:textColor="#FFFFFF"
-        android:onClick="backToModulesList"
         android:textSize="26sp" />
 
     <TextView
@@ -33,48 +33,46 @@
 
         />
 
-    <include layout="@layout/layout_cpb_pixels"
-        android:layout_above="@id/bottomPanel"
-        android:layout_below="@id/titleTxt"
+    <include
+        android:id="@+id/cpbLayout"
+        layout="@layout/layout_cpb_pixels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/cpbLayout"
+        android:layout_above="@id/bottomPanel"
+        android:layout_below="@id/titleTxt"
 
         />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/circuit_reset"
-        android:layout_alignBottom="@id/cpbLayout"
         android:layout_alignEnd="@id/cpbLayout"
+        android:layout_alignBottom="@id/cpbLayout"
         android:layout_margin="10dp"
         android:onClick="turnOffNeopixels"
-        />
+        android:src="@drawable/circuit_reset" />
 
     <ImageView
+        android:id="@+id/clearBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/circuit_clear"
-        android:layout_alignBottom="@id/cpbLayout"
         android:layout_alignStart="@id/cpbLayout"
+        android:layout_alignBottom="@id/cpbLayout"
         android:layout_margin="10dp"
         android:onClick="clearPixelSelection"
-        android:id="@+id/clearBtn"
-        android:visibility="invisible"
-        />
+        android:src="@drawable/circuit_clear"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/selectAllBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/circuit_all"
         android:layout_above="@id/clearBtn"
         android:layout_alignStart="@id/cpbLayout"
-        android:visibility="invisible"
         android:layout_margin="10dp"
         android:onClick="selectAllPixels"
-        />
+        android:src="@drawable/circuit_all"
+        android:visibility="invisible" />
 
 
     <RelativeLayout
@@ -87,7 +85,19 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/colorPickerPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_above="@id/colorPickerPagerIndicator"
+            />
+
+        <com.viewpagerindicator.CirclePageIndicator
+            android:id="@+id/colorPickerPagerIndicator"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:fillColor="#777222"
+            android:layout_marginBottom="4dp"
+            app:strokeColor="#222222"
+            android:layout_alignParentBottom="true"
+            />
 
     </RelativeLayout>
 

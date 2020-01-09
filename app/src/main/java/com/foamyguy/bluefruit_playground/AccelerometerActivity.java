@@ -50,15 +50,17 @@ public class AccelerometerActivity extends ModuleActivity {
         zAngleTxt = findViewById(R.id.zAngleTxt);
 
         WebView wv;
-        //WebView.setWebContentsDebuggingEnabled(true);
+        WebView.setWebContentsDebuggingEnabled(true);
         wv = (WebView) findViewById(R.id.modelWeb);
         wv.getSettings().setJavaScriptEnabled(true);
+
         wv.getSettings().setAllowFileAccess(true);
         wv.getSettings().setAllowContentAccess(true);
         wv.getSettings().setAllowFileAccessFromFileURLs(true);
         wv.getSettings().setAllowUniversalAccessFromFileURLs(true);
         Log.d(TAG, "loading html");
         //wv.loadUrl("file:///android_asset/www/cpb_3d_model_wgt/index.html");
+        //wv.loadUrl("http://192.168.1.112:8000/");
 
 
 
@@ -71,8 +73,8 @@ public class AccelerometerActivity extends ModuleActivity {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view,
                                                               WebResourceRequest request) {
-               if (!request.isForMainFrame() && request.getUrl().getPath().endsWith("three.module.js")) {
-                    Log.d(TAG, "hijack three module");
+               if (!request.isForMainFrame() && request.getUrl().getPath().endsWith(".js")) {
+                    Log.d(TAG, " js file request need to set mime/type");
                    try {
                        return new WebResourceResponse("application/javascript", null, new BufferedInputStream(view.getContext().getAssets().open("www/cpb_3d_model_wgt/three.module.js")));
                    } catch (IOException e) {
