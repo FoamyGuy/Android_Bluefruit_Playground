@@ -31,7 +31,6 @@ Current Known Issues / Todo list:
     - Need to provide smaller cpb asset and make a layout for mdpi to fix pixel / selector checks alignment
 
 * Buttons Module
-    - The switch should either get set correctly automatically on load, or de-emphasize the first change
 
 * Tone Module
     - the speaker symbol should animate - big when keys are pressed, regular when released
