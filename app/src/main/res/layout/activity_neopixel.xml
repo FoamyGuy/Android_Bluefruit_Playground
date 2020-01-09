@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#009ee0"
-        android:drawableLeft="@drawable/ic_back_arrow"
+        android:drawableStart="@drawable/ic_back_arrow"
         android:onClick="backToModulesList"
-        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
         android:text="@string/modules"
         android:textColor="#FFFFFF"
-        android:textSize="26sp" />
+        android:textSize="26sp"
+        tools:ignore="OnClick,RtlSymmetry" />
 
     <TextView
         android:id="@+id/titleTxt"

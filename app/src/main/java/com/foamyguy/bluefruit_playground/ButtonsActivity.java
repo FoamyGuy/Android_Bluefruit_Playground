@@ -32,6 +32,8 @@ public class ButtonsActivity extends ModuleActivity {
 
     int changeSwitchImageTo = 0;
 
+    boolean firstAction = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,9 @@ public class ButtonsActivity extends ModuleActivity {
                 boolean switchPos = intent.getBooleanExtra("switch", BluefruitService.SWITCH_POSITION_LEFT);
                 boolean btnA = intent.getBooleanExtra("btnA", BluefruitService.BUTTON_POSITION_UNPRESSED);
                 boolean btnB = intent.getBooleanExtra("btnB", BluefruitService.BUTTON_POSITION_UNPRESSED);
+                boolean switchOnly = intent.getBooleanExtra("switchOnly", false);
 
+                Log.d(TAG, "switchOnly: "+ switchOnly);
                 if (switchPos == BluefruitService.SWITCH_POSITION_LEFT) {
                     Log.d(TAG, "switch: left");
                 }else{
@@ -117,19 +121,30 @@ public class ButtonsActivity extends ModuleActivity {
                     }
                 }
 
+
                 if (switchPos == BluefruitService.SWITCH_POSITION_LEFT){
-                    if (oldSwitchVal == BluefruitService.SWITCH_POSITION_RIGHT){
+                    if (oldSwitchVal == BluefruitService.SWITCH_POSITION_RIGHT || firstAction){
                         Log.d(TAG, "starting animation for switch to left");
-                        switchStatus.setImageResource(R.drawable.status_left_pressed);
-                        switchStatus.startAnimation(scaleUpReboundAnimation);
-                        changeSwitchImageTo = R.drawable.status_left;
+
+                        if(!firstAction || switchOnly) {
+                            switchStatus.setImageResource(R.drawable.status_left_pressed);
+                            switchStatus.startAnimation(scaleUpReboundAnimation);
+                            changeSwitchImageTo = R.drawable.status_left;
+                        }else{
+                            switchStatus.setImageResource(R.drawable.status_left);
+                        }
                     }
                 }else { // SWITCH_POSITION_RIGHT
-                    if (oldSwitchVal == BluefruitService.SWITCH_POSITION_LEFT){
+                    if (oldSwitchVal == BluefruitService.SWITCH_POSITION_LEFT || firstAction){
                         Log.d(TAG, "starting animation for switch to left");
-                        switchStatus.setImageResource(R.drawable.status_right_pressed);
-                        switchStatus.startAnimation(scaleUpReboundAnimation);
-                        changeSwitchImageTo = R.drawable.status_right;
+
+                        if(!firstAction || switchOnly) {
+                            switchStatus.setImageResource(R.drawable.status_right_pressed);
+                            switchStatus.startAnimation(scaleUpReboundAnimation);
+                            changeSwitchImageTo = R.drawable.status_right;
+                        }else{
+                            switchStatus.setImageResource(R.drawable.status_right);
+                        }
                     }
                 }
 
@@ -137,6 +152,7 @@ public class ButtonsActivity extends ModuleActivity {
                 oldBtnAVal = btnA;
                 oldBtnBVal = btnB;
                 oldSwitchVal = switchPos;
+                firstAction = false;
 
             }
         };

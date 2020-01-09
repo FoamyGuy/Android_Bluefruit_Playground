@@ -28,7 +28,6 @@ Current Known Issues / Todo list:
 
 * Neopixel Module
     - Animations can sometimes continue some frames after pressing the stop icon.
-    - viewpager at the bottom should have indicators
     - Need to provide smaller cpb asset and make a layout for mdpi to fix pixel / selector checks alignment
 
 * Buttons Module

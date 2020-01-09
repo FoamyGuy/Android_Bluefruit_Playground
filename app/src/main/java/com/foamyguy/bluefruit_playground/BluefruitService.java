@@ -651,10 +651,12 @@ public class BluefruitService extends Service {
                     }
                     boolean btnA = BUTTON_POSITION_UNPRESSED;
                     boolean btnB = BUTTON_POSITION_UNPRESSED;
+                    boolean switchOnly = false;
 
                     if (stringValue.length() == 1) {
                         btnA = BUTTON_POSITION_UNPRESSED;
                         btnB = BUTTON_POSITION_UNPRESSED;
+                        switchOnly = true;
                     } else if (stringValue.length() == 2) {
                         if (stringValue.charAt(0) == '1') {
                             btnA = BUTTON_POSITION_PRESSED;
@@ -678,6 +680,9 @@ public class BluefruitService extends Service {
                     buttonDataIntent.putExtra("switch", switchPosition);
                     buttonDataIntent.putExtra("btnA", btnA);
                     buttonDataIntent.putExtra("btnB", btnB);
+                    if (switchOnly){
+                        buttonDataIntent.putExtra("switchOnly", true);
+                    }
                     sendBroadcast(buttonDataIntent);
                     //Log.d(TAG, "char val: " + curVal);
                 }
