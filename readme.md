@@ -1,6 +1,6 @@
 # Bluefruit Playground app for Android
 
-Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v01_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v01_DEBUG.apk)
+Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v03_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v03_DEBUG.apk)
 
 [iOS App Learn Guide PDF](https://cdn-learn.adafruit.com/downloads/pdf/bluefruit-playground-app.pdf)
 
@@ -28,12 +28,7 @@ Current Known Issues / Todo list:
 
 * Neopixel Module
     - Animations can sometimes continue some frames after pressing the stop icon.
-    - Need to provide smaller cpb asset and make a layout for mdpi to fix pixel / selector checks alignment
-
-* Buttons Module
-
-* Tone Module
-    - the speaker symbol should animate - big when keys are pressed, regular when released
+    - Need to provide smaller cpb asset and make a layout for hdpi to fix pixel / selector checks alignment
 
 If you run across any trouble please make an issue.
 
