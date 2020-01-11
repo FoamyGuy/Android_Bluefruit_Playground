@@ -130,6 +130,16 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
         }
 
+        JSONArray pixelsOffArr = new JSONArray();
+        for(int i = 0; i < 10; i++){
+            try {
+                pixelsOffArr.put(new JSONArray("[0,0,0]"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        setPixelColorOutputs(pixelsOffArr);
+
         pixelAnimationRunnable = new Runnable() {
             @Override
             public void run() {

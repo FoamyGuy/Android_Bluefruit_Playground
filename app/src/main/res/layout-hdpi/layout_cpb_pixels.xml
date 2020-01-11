@@ -16,12 +16,12 @@
 
     <CheckBox
         android:id="@+id/pixel9Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="34dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="28dp"
         android:checked="false"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
@@ -29,12 +29,12 @@
 
     <CheckBox
         android:id="@+id/pixel8Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="167dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="137dp"
+        android:layout_marginTop="52dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -42,12 +42,12 @@
 
     <CheckBox
         android:id="@+id/pixel7Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="178dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="84dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:enabled="true"
         android:padding="0dp"
@@ -56,12 +56,12 @@
 
     <CheckBox
         android:id="@+id/pixel6Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="168dp"
-        android:layout_marginTop="138dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginTop="113dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:checked="false"
         android:padding="0dp"
@@ -69,12 +69,12 @@
 
     <CheckBox
         android:id="@+id/pixel5Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="168dp"
+        android:layout_marginStart="114dp"
+        android:layout_marginTop="137dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:checked="false"
         android:padding="0dp"
@@ -83,12 +83,12 @@
 
     <CheckBox
         android:id="@+id/pixel4Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="170dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="138dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -96,12 +96,12 @@
 
     <CheckBox
         android:id="@+id/pixel3Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="142dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="116dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -109,12 +109,12 @@
 
     <CheckBox
         android:id="@+id/pixel2Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="102dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="82dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -124,12 +124,12 @@
 
     <CheckBox
         android:id="@+id/pixel1Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="51dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -138,12 +138,12 @@
 
     <CheckBox
         android:id="@+id/pixel0Check"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="27dp"
         android:button="@drawable/check_box_neopixel_selector"
         android:padding="0dp"
         android:checked="false"
@@ -157,8 +157,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="67dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="33dp"
         />
 
     <ImageView
@@ -168,8 +168,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="57dp"
         />
 
     <ImageView
@@ -179,8 +179,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="29dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="88dp"
         />
     <ImageView
         android:id="@+id/pixel3ColorOutput"
@@ -189,8 +189,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="121dp"
         />
     <ImageView
         android:id="@+id/pixel4ColorOutput"
@@ -199,8 +199,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="70dp"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="144dp"
         />
 
     <ImageView
@@ -210,8 +210,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="175dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="143dp"
         />
 
 
@@ -222,8 +222,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="119dp"
         />
 
     <ImageView
@@ -233,8 +233,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="185dp"
-        android:layout_marginTop="109dp"
+        android:layout_marginStart="151dp"
+        android:layout_marginTop="90dp"
         />
 
     <ImageView
@@ -244,8 +244,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="175dp"
-        android:layout_marginTop="71dp"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="58dp"
         />
 
     <ImageView
@@ -255,8 +255,8 @@
         android:src="@drawable/circle_neopixel"
         android:layout_alignStart="@id/cpbImg"
         android:layout_alignTop="@id/cpbImg"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="41dp"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="34dp"
         />
 
 
