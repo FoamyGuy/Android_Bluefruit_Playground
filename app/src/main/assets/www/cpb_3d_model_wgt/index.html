@@ -29,7 +29,8 @@
 		<script type="module">
 
 			import * as THREE from './three.module.js';
-            import * as tc from './TrackballControls.js';
+            //import * as tc from './TrackballControls.js';
+            import { TrackballControls } from './TrackballControls_orig.js';
 
 			var container;
             var controls;
@@ -92,9 +93,10 @@
 					pivot.add( CPB_model );
 					scene.add( pivot );
 				 	//scene.add( obj );
-                    console.log(tc);
-                    console.log(tc.TrackballControls);
-                    controls = new tc.TrackballControls( camera , renderer.domElement);
+                    //console.log(tc);
+                    //console.log(tc.TrackballControls);
+                    //controls = new tc.TrackballControls( camera , renderer.domElement);
+                    controls = new TrackballControls( camera , renderer.domElement);
                     controls.rotateSpeed = 1.0;
                     controls.zoomSpeed = 1.2;
                     controls.panSpeed = 0.8;

@@ -1,6 +1,6 @@
 # Bluefruit Playground app for Android
 
-Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v03_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v03_DEBUG.apk)
+Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v04_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v04_DEBUG.apk)
 
 [iOS App Learn Guide PDF](https://cdn-learn.adafruit.com/downloads/pdf/bluefruit-playground-app.pdf)
 
@@ -23,7 +23,6 @@ Current Known Issues / Todo list:
     - pairing activity list of devices should show signal strength icons instead of raw value
 
 * Accelerometer Module
-    - 3D Model should allow user to manually drag to change view
     - Accelerometer activity should hide the ugly webview loading
 
 * Neopixel Module

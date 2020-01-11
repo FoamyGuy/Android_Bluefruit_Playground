@@ -36,6 +36,8 @@ public class AccelerometerActivity extends ModuleActivity {
     TextView xAngleTxt;
     TextView yAngleTxt;
     TextView zAngleTxt;
+    AccelerometerModelWebServer androidWebServer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,13 @@ public class AccelerometerActivity extends ModuleActivity {
         yAngleTxt = findViewById(R.id.yAngleTxt);
         zAngleTxt = findViewById(R.id.zAngleTxt);
 
+        AccelerometerModelWebServer androidWebServer = new AccelerometerModelWebServer(8000, this);
+        try {
+            androidWebServer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         WebView wv;
         WebView.setWebContentsDebuggingEnabled(true);
         wv = (WebView) findViewById(R.id.modelWeb);
@@ -60,10 +69,11 @@ public class AccelerometerActivity extends ModuleActivity {
         wv.getSettings().setAllowUniversalAccessFromFileURLs(true);
         Log.d(TAG, "loading html");
         //wv.loadUrl("file:///android_asset/www/cpb_3d_model_wgt/index.html");
-        //wv.loadUrl("http://192.168.1.112:8000/");
+        //wv.loadUrl("http://192.168.1.117:8000/");
+        wv.loadUrl("http://localhost:8000/");
 
 
-
+        /*
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
@@ -74,7 +84,7 @@ public class AccelerometerActivity extends ModuleActivity {
             public WebResourceResponse shouldInterceptRequest(WebView view,
                                                               WebResourceRequest request) {
                if (!request.isForMainFrame() && request.getUrl().getPath().endsWith(".js")) {
-                    Log.d(TAG, " js file request need to set mime/type");
+                    Log.d(TAG, " js file request need to set mime/type " + request.getUrl().getPath());
                    try {
                        return new WebResourceResponse("application/javascript", null, new BufferedInputStream(view.getContext().getAssets().open("www/cpb_3d_model_wgt/three.module.js")));
                    } catch (IOException e) {
@@ -94,6 +104,8 @@ public class AccelerometerActivity extends ModuleActivity {
         });
 
         wv.loadUrl("https://appassets.androidplatform.net/assets/www/cpb_3d_model_wgt/index.html");
+*/
+
 
         IntentFilter accelerometerDataFilter = new IntentFilter(BluefruitService.ACTION_ACCELEROMETER_DATA_AVAILABLE);
         accelerometerDataReceiver = new BroadcastReceiver() {
@@ -148,6 +160,12 @@ public class AccelerometerActivity extends ModuleActivity {
         Intent i = new Intent(BluefruitService.ACTION_DISABLE_ACCELEROMETER_NOTIFY);
         sendBroadcast(i);
         Log.d(TAG, "sent disable accel notify");
+
+        if(androidWebServer != null) {
+            androidWebServer.stop();
+
+        }
+
 
         try {
             unregisterReceiver(accelerometerDataReceiver);

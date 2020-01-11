@@ -30,6 +30,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.webkit:webkit:1.1.0'
     implementation 'fr.avianey.com.viewpagerindicator:library:2.4.1.1@aar'
+    implementation 'org.nanohttpd:nanohttpd:2.2.0'
     implementation 'com.larswerkman:HoloColorPicker:1.5'
     implementation "com.github.skydoves:colorpickerview:2.1.6"
     // Nordic
