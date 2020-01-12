@@ -1,6 +1,6 @@
 # Bluefruit Playground app for Android
 
-Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v05_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v05_DEBUG.apk)
+Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v06_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v06_DEBUG.apk)
 
 [iOS App Learn Guide PDF](https://cdn-learn.adafruit.com/downloads/pdf/bluefruit-playground-app.pdf)
 
@@ -21,6 +21,7 @@ Current Known Issues / Todo list:
 * General
     - Service should finish itself after some time idle
     - pairing activity list of devices should show signal strength icons instead of raw value
+    - exit button in settings activity needs to be hooked up
 
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading

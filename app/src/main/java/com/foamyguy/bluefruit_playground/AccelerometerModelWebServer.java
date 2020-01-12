@@ -66,9 +66,11 @@ public class AccelerometerModelWebServer extends NanoHTTPD {
             if(uri!=null){
 
                 if(uri.contains(".js")){
-                    //mbuffer = mContext.getAssets().open(uri.substring(1));
-                    String file_content = loadTextFromAssets(mContext, "www/cpb_3d_model_wgt/" + uri.substring(1), StandardCharsets.UTF_8);
-                    return newFixedLengthResponse(Response.Status.OK, MIME_JS, file_content);
+                    mbuffer = mContext.getAssets().open("www/cpb_3d_model_wgt/" + uri.substring(1));
+                    //String file_content = loadTextFromAssets(mContext, "www/cpb_3d_model_wgt/" + uri.substring(1), StandardCharsets.UTF_8);
+
+                    //return newFixedLengthResponse(Response.Status.OK, MIME_JS, file_content);
+                    return newChunkedResponse(Response.Status.OK, MIME_JS, mbuffer);
                     //return new NanoHTTPD.Response(HTTP_OK, MIME_JS, mbuffer);
 
                 }else if(uri.contains(".css")){
@@ -87,11 +89,12 @@ public class AccelerometerModelWebServer extends NanoHTTPD {
                     Log.d(TAG, "length: " + fileStream.length);
                     return newFixedLengthResponse(Response.Status.OK, MIME_PNG, fileStream.is, fileStream.length);
                 }else if(uri.contains(".json")){
-                    mbuffer = mContext.getAssets().open(uri.substring(1));
+                    mbuffer = mContext.getAssets().open("www/cpb_3d_model_wgt/" + uri.substring(1));
                     // HTTP_OK = "200 OK" or HTTP_OK = Status.OK;(check comments)
                     //return new NanoHTTPD.Response(HTTP_OK, MIME_PNG, mbuffer);
-                    String file_content = loadTextFromAssets(mContext, "www/cpb_3d_model_wgt/" + uri.substring(1), StandardCharsets.UTF_8);
-                    return newFixedLengthResponse(Response.Status.OK, MIME_JSON, file_content);
+                    //String file_content = loadTextFromAssets(mContext, "www/cpb_3d_model_wgt/" + uri.substring(1), StandardCharsets.UTF_8);
+                    //return newFixedLengthResponse(Response.Status.OK, MIME_JSON, file_content);
+                    return newChunkedResponse(Response.Status.OK, MIME_JSON, mbuffer);
 
                 }else{
                     String file_content = loadTextFromAssets(mContext, "www/cpb_3d_model_wgt/index.html", StandardCharsets.UTF_8);
