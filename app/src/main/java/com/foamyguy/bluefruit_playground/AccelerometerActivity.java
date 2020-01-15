@@ -73,8 +73,8 @@ public class AccelerometerActivity extends ModuleActivity {
         wv.loadUrl("http://localhost:8000/");
 
 
-        /*
-        final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
+
+        /*final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
                 .build();
@@ -103,8 +103,8 @@ public class AccelerometerActivity extends ModuleActivity {
             }
         });
 
-        wv.loadUrl("https://appassets.androidplatform.net/assets/www/cpb_3d_model_wgt/index.html");
-*/
+        wv.loadUrl("https://appassets.androidplatform.net/assets/www/cpb_3d_model_wgt/index.html");*/
+
 
 
         IntentFilter accelerometerDataFilter = new IntentFilter(BluefruitService.ACTION_ACCELEROMETER_DATA_AVAILABLE);

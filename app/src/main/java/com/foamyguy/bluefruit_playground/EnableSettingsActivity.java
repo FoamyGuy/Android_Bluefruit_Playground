@@ -78,14 +78,6 @@ public class EnableSettingsActivity extends AppCompatActivity {
     }
 
     public void close(View view) {
+        finish();
     }
-
-    public void statusCheck() {
-
-
-
-    }
-
-
-
 }

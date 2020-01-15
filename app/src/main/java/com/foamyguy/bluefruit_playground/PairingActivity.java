@@ -45,6 +45,8 @@ public class PairingActivity extends Activity {
 
     ProgressDialog progressDialog;
 
+    boolean stopServiceOnStop = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +63,6 @@ public class PairingActivity extends Activity {
                 startActivity(i);
                 finish();
                 return;
-                //Util.Log("after called finish of  going to permission");
             }
         }
 
@@ -99,6 +100,9 @@ public class PairingActivity extends Activity {
                 }else if (status == BluefruitService.STATE_SERVICES_DISCOVERED){
                     progressDialog.setMessage("Services Discovered");
                     progressDialog.dismiss();
+
+                    stopServiceOnStop = false;
+
                     Intent modulesIntent = new Intent(context, ModulesListActivity.class);
                     startActivity(modulesIntent);
                     finish();
@@ -107,7 +111,6 @@ public class PairingActivity extends Activity {
             }
         };
         registerReceiver(connectionStatusReceiver, statusFilter);
-
 
         IntentFilter filter = new IntentFilter(BluefruitService.ACTION_SCAN_RESULT_AVAILABLE);
         filter.addAction(BluefruitService.ACTION_SCANNING_STOPPED);
@@ -127,17 +130,19 @@ public class PairingActivity extends Activity {
         };
         registerReceiver(scanResultReceiver, filter);
 
-        // Ensures Bluetooth is available on the device and it is enabled. If not,
-        // displays a dialog requesting user permission to enable Bluetooth.
+
         bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
+        // Ensures Bluetooth and Location is available on the device and it is enabled. If not,
+        // go to th enable settings activity
         if (bluetoothAdapter == null ||
             !bluetoothAdapter.isEnabled() ||
             !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
 
+            stopServiceOnStop = false;
             Intent enableSettingsIntent = new Intent(this, EnableSettingsActivity.class);
             startActivity(enableSettingsIntent);
             finish();
@@ -162,7 +167,7 @@ public class PairingActivity extends Activity {
                 Log.i(TAG, "onReceive connected state " + connectedState);
                 unregisterReceiver(this);
                 if (connectedState == BluefruitService.STATE_CONNECTED) {
-
+                    stopServiceOnStop = false;
                     Intent modulesListIntent = new Intent(PairingActivity.this, ModulesListActivity.class);
                     startActivity(modulesListIntent);
                     finish();
@@ -179,10 +184,6 @@ public class PairingActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent stopService = new Intent(BluefruitService.ACTION_STOP_SERVICE);
-        sendBroadcast(stopService);
-
-
         finish();
     }
 
@@ -214,6 +215,15 @@ public class PairingActivity extends Activity {
             // Receiver was not registered
             e.printStackTrace();
         }
+        if(stopServiceOnStop) {
+            Intent disconnectIntent = new Intent(BluefruitService.ACTION_DISCONNECT);
+            sendBroadcast(disconnectIntent);
+
+            Intent exitServiceIntent = new Intent(BluefruitService.ACTION_STOP_SERVICE);
+            sendBroadcast(exitServiceIntent);
+        }
+
+        finish();
     }
 
     public void startScan(View view) {
@@ -222,5 +232,9 @@ public class PairingActivity extends Activity {
         Log.i(TAG, "sent request scan broadcast");
         //scanningTxt.setVisibility(View.VISIBLE);
         scanningTxt.setText("Scanning...");
+    }
+
+    public void exit(View view) {
+        finish();
     }
 }

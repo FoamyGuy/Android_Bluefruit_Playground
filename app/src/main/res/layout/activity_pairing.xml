@@ -10,11 +10,25 @@
     >
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/backTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:background="#009ee0"
+        android:textSize="26sp"
+        android:onClick="exit"
+        />
+
+    <TextView
         android:id="@+id/titleTxt"
         android:background="#0093d1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/finding_cpb"
+        android:layout_below="@id/backTxt"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"

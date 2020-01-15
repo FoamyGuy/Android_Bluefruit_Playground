@@ -164,6 +164,8 @@ public class BluefruitService extends Service {
     BluetoothGattCharacteristic accelerometerCharacteristic;
     BluetoothGattCharacteristic accelerometerPeriodCharacteristic;
 
+    BluetoothLeScanner bluetoothLeScanner;
+
     public BluefruitService() {
     }
 
@@ -185,7 +187,7 @@ public class BluefruitService extends Service {
         // Initializes Bluetooth adapter.
         final BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
-
+        bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
 
         showNotification();
 
@@ -282,6 +284,13 @@ public class BluefruitService extends Service {
 
                 } else if (action.equals(ACTION_STOP_SERVICE)) {
                     Log.d(TAG, "received stopService");
+                    try {
+                        bluetoothLeScanner.stopScan(mLeScanCallback);
+                    } catch (IllegalStateException e) {
+                        //e.printStackTrace();
+                        // BT Adapter got turned off before scan period was complete.
+                    }
+
                     if(bluetoothGatt != null) {
                         bluetoothGatt.close();
                     }
@@ -328,7 +337,9 @@ public class BluefruitService extends Service {
                     animatingNeopixels = false;
 
                 } else if (action.equals(ACTION_DISCONNECT)) {
-                    bluetoothGatt.close();
+                    if(bluetoothGatt != null) {
+                        bluetoothGatt.close();
+                    }
                     Intent connectionStatusIntent = new Intent(ACTION_CONNECTION_STATUS);
                     connectionStatusIntent.putExtra("status", STATE_DISCONNECTED);
                     sendBroadcast(connectionStatusIntent);
@@ -785,9 +796,7 @@ public class BluefruitService extends Service {
         // the addAction re-use the same intent to keep the example short
         mBuilder
                 .setContentTitle("Bluefruit Playground Service")
-                .setContentText("touch to turn off service")
                 .setSmallIcon(R.drawable.icon)
-                .setContentIntent(pIntent)
                 .setChannelId("bluefruit_service")
                 .setAutoCancel(true);
 
@@ -924,7 +933,7 @@ public class BluefruitService extends Service {
     private void scanLeDevice(final boolean enable) {
 
 
-        final BluetoothLeScanner bluetoothLeScanner = bluetoothAdapter.getBluetoothLeScanner();
+
         Log.d(TAG, "got scanner");
         if (enable) {
             // Stops scanning after a pre-defined scan period.
@@ -933,9 +942,15 @@ public class BluefruitService extends Service {
                 public void run() {
                     mScanning = false;
                     Log.d(TAG, "stopping scan");
-                    bluetoothLeScanner.stopScan(mLeScanCallback);
-                    Intent scanStopIntent = new Intent(ACTION_SCANNING_STOPPED);
-                    sendBroadcast(scanStopIntent);
+
+                    try {
+                        bluetoothLeScanner.stopScan(mLeScanCallback);
+                        Intent scanStopIntent = new Intent(ACTION_SCANNING_STOPPED);
+                        sendBroadcast(scanStopIntent);
+                    } catch (IllegalStateException e) {
+                        //e.printStackTrace();
+                        // BT Adapter got turned off before scan period was complete.
+                    }
                 }
             }, SCAN_PERIOD);
 

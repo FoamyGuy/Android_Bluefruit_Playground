@@ -2,12 +2,9 @@ package com.foamyguy.bluefruit_playground;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
@@ -18,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -26,6 +22,7 @@ import android.widget.TextView;
 public class ModulesListActivity extends Activity {
 
     ListView modulesList;
+    boolean stopServiceOnStop = true;
 
     // Color.argb(0,0,0,0)
     @Override
@@ -49,6 +46,7 @@ public class ModulesListActivity extends Activity {
         modulesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                stopServiceOnStop = false;
                 if (position == 0){
                     startNeopixelsActivity(view);
                 }else if (position == 1){
@@ -67,6 +65,26 @@ public class ModulesListActivity extends Activity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        stopServiceOnStop = true;
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if(stopServiceOnStop){
+            Intent disconnectIntent = new Intent(BluefruitService.ACTION_DISCONNECT);
+            sendBroadcast(disconnectIntent);
+
+            Intent exitServiceIntent = new Intent(BluefruitService.ACTION_STOP_SERVICE);
+            sendBroadcast(exitServiceIntent);
+        }
+        finish();
+    }
+
+    @Override
     public void onBackPressed() {
         disconnectBluefruit(null);
     }
@@ -75,10 +93,11 @@ public class ModulesListActivity extends Activity {
         Intent disconnectIntent = new Intent(BluefruitService.ACTION_DISCONNECT);
         sendBroadcast(disconnectIntent);
 
+        stopServiceOnStop = false;
+
         Intent pairingIntent = new Intent(getApplicationContext(), PairingActivity.class);
         startActivity(pairingIntent);
         finish();
-
     }
 
     private class CPBModule {
