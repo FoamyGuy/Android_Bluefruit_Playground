@@ -181,18 +181,7 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
     }
 
-    private String readAssetFile(String assetFile) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        InputStream is = getAssets().open(assetFile);
-        BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8 ));
-        String str;
-        while ((str = br.readLine()) != null) {
-            sb.append(str);
-        }
-        br.close();
 
-        return sb.toString();
-    }
 
 
     @Override
@@ -287,6 +276,25 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
             if (position == 0) {
                 page = (RelativeLayout) inflater.inflate(R.layout.page_color_sequence, container, false);
                 speedSeek = page.findViewById(R.id.speedSeek);
+                speedSeek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                    @Override
+                    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                        Intent setDelayIntent = new Intent(BluefruitService.ACTION_SET_NEOPIXEL_ANIMATION_DELAY);
+                        setDelayIntent.putExtra("delay", seekBar.getMax() - progress);
+                        sendBroadcast(setDelayIntent);
+                        Log.d(TAG, "sent set delay intent");
+                    }
+
+                    @Override
+                    public void onStartTrackingTouch(SeekBar seekBar) {
+
+                    }
+
+                    @Override
+                    public void onStopTrackingTouch(SeekBar seekBar) {
+
+                    }
+                });
                 ImageView sequence3Btn = page.findViewById(R.id.sequence3Btn);
                 ImageView sequence2Btn = page.findViewById(R.id.sequence2Btn);
                 ImageView sequence4Btn = page.findViewById(R.id.sequence4Btn);
@@ -394,21 +402,27 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
     }
 
     public void startRotationSequence(View v){
-        animating = true;
+        /*animating = true;
         Log.d(TAG, "starting rotate sequence");
         curSequence = new RotateLightSequence();
-        colorPickerPager.post(pixelAnimationRunnable);
+        colorPickerPager.post(pixelAnimationRunnable);*/
+        Intent animationIntent = new Intent(BluefruitService.ACTION_PLAY_NEOPIXEL_ANIMATION);
+        animationIntent.putExtra("animationType", "rotate");
+        sendBroadcast(animationIntent);
     }
 
     public void startPulseSequence(View v){
-        animating = true;
+        /*animating = true;
         Log.d(TAG, "starting pulse sequence");
         curSequence = new PulseLightSequence();
-        colorPickerPager.post(pixelAnimationRunnable);
+        colorPickerPager.post(pixelAnimationRunnable);*/
+        Intent animationIntent = new Intent(BluefruitService.ACTION_PLAY_NEOPIXEL_ANIMATION);
+        animationIntent.putExtra("animationType", "pulse");
+        sendBroadcast(animationIntent);
     }
 
     public void startSweepSequence(View v){
-        Log.d(TAG, "starting sweep sequence");
+        /*Log.d(TAG, "starting sweep sequence");
         try {
             String sizzle_json = readAssetFile("sequence_json/sweep.json");
             JSONArray sequenceFrames = new JSONArray(sizzle_json);
@@ -419,12 +433,14 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
+        Intent animationIntent = new Intent(BluefruitService.ACTION_PLAY_NEOPIXEL_ANIMATION);
+        animationIntent.putExtra("animationType", "sweep");
+        sendBroadcast(animationIntent);
     }
 
     public void startSizzleSequence(View v){
-
-        Log.d(TAG, "starting sizzle sequence");
+       /* Log.d(TAG, "starting sizzle sequence");
         try {
             String sizzle_json = readAssetFile("sequence_json/alternating_pixels.json");
             JSONArray sequenceFrames = new JSONArray(sizzle_json);
@@ -435,8 +451,10 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
-        }
-
+        }*/
+        Intent animationIntent = new Intent(BluefruitService.ACTION_PLAY_NEOPIXEL_ANIMATION);
+        animationIntent.putExtra("animationType", "sizzle");
+        sendBroadcast(animationIntent);
     }
 
     public void setNeopixelColorsAdjusted(View v) {

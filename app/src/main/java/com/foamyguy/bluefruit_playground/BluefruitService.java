@@ -24,15 +24,23 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.view.View;
 
+import com.foamyguy.bluefruit_playground.neopixelanimations.JSONLightSequence;
 import com.foamyguy.bluefruit_playground.neopixelanimations.NeopixelSequence;
+import com.foamyguy.bluefruit_playground.neopixelanimations.PulseLightSequence;
 import com.foamyguy.bluefruit_playground.neopixelanimations.RotateLightSequence;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -83,6 +91,7 @@ public class BluefruitService extends Service {
     private boolean mScanning;
     private Handler handler;
 
+    private int animationDelay = 0;
     public static final int STATE_DISCONNECTED = 0;
     public static final int STATE_CONNECTING = 1;
     public static final int STATE_CONNECTED = 2;
@@ -129,6 +138,7 @@ public class BluefruitService extends Service {
 
 
     public static final String ACTION_PLAY_NEOPIXEL_ANIMATION = "com.foamyguy.bluefruit_playground.ACTION_PLAY_NEOPIXEL_ANIMATION";
+    public static final String ACTION_SET_NEOPIXEL_ANIMATION_DELAY = "com.foamyguy.bluefruit_playground.ACTION_SET_NEOPIXEL_ANIMATION_DELAY";
     public static final String ACTION_STOP_NEOPIXEL_ANIMATION = "com.foamyguy.bluefruit_playground.ACTION_STOP_NEOPIXEL_ANIMATION";
 
     public static final String ACTION_LIGHT_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_LIGHT_DATA_AVAILABLE";
@@ -241,6 +251,7 @@ public class BluefruitService extends Service {
         bluefruitReceiverFilter.addAction(ACTION_ENABLE_ACCELEROMETER_NOTIFY);
         bluefruitReceiverFilter.addAction(ACTION_DISABLE_ACCELEROMETER_NOTIFY);
         bluefruitReceiverFilter.addAction(ACTION_PLAY_NEOPIXEL_ANIMATION);
+        bluefruitReceiverFilter.addAction(ACTION_SET_NEOPIXEL_ANIMATION_DELAY);
         bluefruitReceiverFilter.addAction(ACTION_STOP_NEOPIXEL_ANIMATION);
         bluefruitReceiverFilter.addAction(ACTION_DISCONNECT);
 
@@ -329,12 +340,35 @@ public class BluefruitService extends Service {
                     Log.d(TAG, "received disable accel notify");
                     enableCharacteristicNotifications(accelerometerCharacteristic, false);
                 } else if (action.equals(ACTION_PLAY_NEOPIXEL_ANIMATION)) {
+                    String animationType = intent.getStringExtra("animationType");
+                    int delay = intent.getIntExtra("delay", 0);
+                    animationDelay = delay;
+                    if (animationType.equals("sweep")) {
+                        curSequence = new JSONLightSequence(context, "sweep.json", false);
+                    } else if (animationType.equals("pulse")) {
+                        curSequence = new PulseLightSequence();
+                    } else if (animationType.equals("rotate")) {
+                        curSequence = new RotateLightSequence();
+                    } else if (animationType.equals("sizzle")) {
+                        curSequence = new JSONLightSequence(context, "alternating_pixels.json", true);
+                    } else {
+                        curSequence = new RotateLightSequence();
+                    }
                     animatingNeopixels = true;
-                    curSequence = new RotateLightSequence();
+
                     setNeopixels(curSequence.getCurrentFrame());
+                } else if (action.equals(ACTION_SET_NEOPIXEL_ANIMATION_DELAY)) {
+                    animationDelay = intent.getIntExtra("delay", 0);
                 } else if (action.equals(ACTION_STOP_NEOPIXEL_ANIMATION)) {
                     Log.d(TAG, "received disable temp notify");
                     animatingNeopixels = false;
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            turnOffNeopixels();
+                        }
+                    }, 300);
+
 
                 } else if (action.equals(ACTION_DISCONNECT)) {
                     if(bluetoothGatt != null) {
@@ -620,7 +654,16 @@ public class BluefruitService extends Service {
                 }
                 if (characteristic.getUuid().equals(BluefruitService.UUID_NEOPIXEL_DATA_CHARACTERISTIC)) {
                     if (animatingNeopixels) {
-                        setNeopixels(curSequence.getCurrentFrame());
+                        if (animationDelay == 0) {
+                            setNeopixels(curSequence.getCurrentFrame());
+                        }else{
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setNeopixels(curSequence.getCurrentFrame());
+                                }
+                            }, animationDelay);
+                        }
                     }
 
                     if (neopixelActions.size() > 0){
@@ -875,6 +918,18 @@ public class BluefruitService extends Service {
         }
     }
 
+    private void turnOffNeopixels() {
+        JSONArray pixelsOffArr = new JSONArray();
+        for(int i = 0; i < 10; i++){
+            try {
+                pixelsOffArr.put(new JSONArray("[0,0,0]"));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        setNeopixels(pixelsOffArr);
+    }
+
     private boolean setNeopixels(JSONArray pixels_arr) {
 
         char index = 0;
@@ -930,10 +985,10 @@ public class BluefruitService extends Service {
 
     }
 
+
+
+
     private void scanLeDevice(final boolean enable) {
-
-
-
         Log.d(TAG, "got scanner");
         if (enable) {
             // Stops scanning after a pre-defined scan period.
