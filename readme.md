@@ -19,16 +19,12 @@ Also remember to disable Bluetooth and Location services if you aren't otherwise
 
 Current Known Issues / Todo list:
 * General
-    - Service should finish itself after some time idle
     - pairing activity list of devices should show signal strength icons instead of raw value
-    - exit button in settings activity needs to be hooked up
 
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading
 
 * Neopixel Module
-    - Animations can sometimes continue some frames after pressing the stop icon.
-    - Need to provide smaller cpb asset and make a layout for hdpi to fix pixel / selector checks alignment
 
 If you run across any trouble please make an issue.
 
