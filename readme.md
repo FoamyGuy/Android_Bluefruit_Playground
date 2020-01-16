@@ -20,12 +20,15 @@ Also remember to disable Bluetooth and Location services if you aren't otherwise
 Current Known Issues / Todo list:
 * General
     - pairing activity list of devices should show signal strength icons instead of raw value
-
+    - About page needs to be implemented
+    - Module Help pages need to be implemented
+    - Switch package to adafruit namespace
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading
 
 * Neopixel Module
-
+    - Running animations should get stopped when user selects a single color.
+    - Increase the range of the speed slider for the Animations.
 If you run across any trouble please make an issue.
 
 
