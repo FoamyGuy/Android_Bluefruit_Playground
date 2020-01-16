@@ -935,6 +935,11 @@ public class BluefruitService extends Service {
         char index = 0;
         byte flags = 1;
 
+        if(animatingNeopixels){
+            Intent pixelOutputIntent = new Intent(NeopixelActivity.ACTION_SET_NEOPIXEL_OUTPUT);
+            pixelOutputIntent.putExtra("neopixel_frame", pixels_arr.toString());
+            sendBroadcast(pixelOutputIntent);
+        }
 
         Log.d(TAG, "inside setNeopixels: " + pixels_arr);
 

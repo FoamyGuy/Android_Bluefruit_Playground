@@ -5,8 +5,10 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -59,6 +61,7 @@ import java.util.ArrayList;
 
 public class NeopixelActivity extends ModuleActivity implements CompoundButton.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
     public static final String TAG = NeopixelActivity.class.getSimpleName();
+    public static final String ACTION_SET_NEOPIXEL_OUTPUT = "com.foamyguy.bluefruit_playground.ACTION_SET_NEOPIXEL_OUTPUT";;
     ViewPager colorPickerPager;
 
     ColorPickerAdapter colorPickerAdapter;
@@ -80,6 +83,9 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
     ImageView unselectAllImg;
 
     boolean haveAutoSelected = false;
+
+    BroadcastReceiver pixelOutputReceiver;
+
 
 
     @Override
@@ -157,6 +163,19 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
                 }
             }
         };
+
+        IntentFilter neopixelOututFilter = new IntentFilter(ACTION_SET_NEOPIXEL_OUTPUT);
+        pixelOutputReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                try {
+                    setPixelColorOutputs(new JSONArray(intent.getStringExtra("neopixel_frame")));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        registerReceiver(pixelOutputReceiver, neopixelOututFilter);
 
     }
 
@@ -550,5 +569,15 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
+        try {
+            unregisterReceiver(pixelOutputReceiver);
+        } catch (IllegalArgumentException e) {
+            // Receiver was not registered
+            e.printStackTrace();
+        }
+    }
 }
