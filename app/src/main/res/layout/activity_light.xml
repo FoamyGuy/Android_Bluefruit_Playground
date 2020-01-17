@@ -10,11 +10,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/modules"
+        android:text="@string/modules_title"
         android:id="@+id/backTxt"
         android:textColor="#FFFFFF"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_back_arrow"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/ic_back_arrow"
         android:background="#009ee0"
         android:onClick="backToModulesList"
         android:textSize="26sp"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleTxt"
-        android:text="Light Sensor"
+        android:text="@string/lightsensor_title"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -59,7 +59,7 @@
             android:textSize="26sp"
             android:layout_marginTop="10dp"
             android:textColor="#000000"
-            android:text="Luminance Reading"
+            android:text="@string/lightsensor_panel_title"
 
             />
 
@@ -136,7 +136,7 @@
             android:layout_marginBottom="5dp"
             android:textSize="20sp"
             android:textColor="#000000"
-            android:text="Light level"
+            android:text="@string/lightsensor_panel_unit"
             android:id="@+id/lightTxtLbl"
             />
 

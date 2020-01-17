@@ -31,7 +31,7 @@ public class LightActivity extends ModuleActivity {
                 int light = intent.getIntExtra("light", 0);
                 Log.i(TAG, "onReceive temperature data: " + light);
                 lightProgress.setProgress(light);
-                lightTxt.setText(""+light);
+                lightTxt.setText(String.valueOf(light));
             }
         };
         registerReceiver(lightDataReceiver, lightDataFilter);
