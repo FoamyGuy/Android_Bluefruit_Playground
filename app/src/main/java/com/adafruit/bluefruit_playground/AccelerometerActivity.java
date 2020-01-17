@@ -4,13 +4,22 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.TextView;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.text.NumberFormat;
+
+import androidx.annotation.RequiresApi;
+import androidx.webkit.WebViewAssetLoader;
 
 public class AccelerometerActivity extends ModuleActivity {
     private final String TAG = AccelerometerActivity.class.getSimpleName();
@@ -38,12 +47,12 @@ public class AccelerometerActivity extends ModuleActivity {
         yAngleTxt = findViewById(R.id.yAngleTxt);
         zAngleTxt = findViewById(R.id.zAngleTxt);
 
-        AccelerometerModelWebServer androidWebServer = new AccelerometerModelWebServer(8000, this);
+        /*AccelerometerModelWebServer androidWebServer = new AccelerometerModelWebServer(8000, this);
         try {
             androidWebServer.start();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         WebView wv;
         WebView.setWebContentsDebuggingEnabled(true);
@@ -57,11 +66,11 @@ public class AccelerometerActivity extends ModuleActivity {
         Log.d(TAG, "loading html");
         //wv.loadUrl("file:///android_asset/www/cpb_3d_model_wgt/index.html");
         //wv.loadUrl("http://192.168.1.117:8000/");
-        wv.loadUrl("http://localhost:8000/");
+        //wv.loadUrl("http://localhost:8000/");
 
 
 
-        /*final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
+        final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
                 .addPathHandler("/res/", new WebViewAssetLoader.ResourcesPathHandler(this))
                 .build();
@@ -73,7 +82,7 @@ public class AccelerometerActivity extends ModuleActivity {
                if (!request.isForMainFrame() && request.getUrl().getPath().endsWith(".js")) {
                     Log.d(TAG, " js file request need to set mime/type " + request.getUrl().getPath());
                    try {
-                       return new WebResourceResponse("application/javascript", null, new BufferedInputStream(view.getContext().getAssets().open("www/cpb_3d_model_wgt/three.module.js")));
+                       return new WebResourceResponse("application/javascript", null, new BufferedInputStream(view.getContext().getAssets().open(request.getUrl().getPath().replace("/assets/",""))));
                    } catch (IOException e) {
                        e.printStackTrace();
                    }
@@ -90,7 +99,7 @@ public class AccelerometerActivity extends ModuleActivity {
             }
         });
 
-        wv.loadUrl("https://appassets.androidplatform.net/assets/www/cpb_3d_model_wgt/index.html");*/
+        wv.loadUrl("https://appassets.androidplatform.net/assets/www/cpb_3d_model_wgt/index.html");
 
 
 
@@ -150,9 +159,7 @@ public class AccelerometerActivity extends ModuleActivity {
 
         if(androidWebServer != null) {
             androidWebServer.stop();
-
         }
-
 
         try {
             unregisterReceiver(accelerometerDataReceiver);
