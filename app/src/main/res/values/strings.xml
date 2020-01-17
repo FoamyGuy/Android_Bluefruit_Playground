@@ -6,7 +6,182 @@
     <string name="modules">Modules</string>
     <string name="tone_generator">Tone Generator</string>
     <string name="appbar_scrolling_view_behavior"></string>
-    <string name="permision_detail">Android requires applications to be granted the LOCATION permission in order to receive the results of a BLE scan. Please press the \"Okay\" button and grant the permission in order to use the Bluefruit Playground app. </string>
-    <string name="settings_detail_bluetooth">Bluetooth and Location settings must be enabled to use the Bluefruit Playground app. \n\nPlease press \"Okay\" and then turn on Bluetooth.</string>
-    <string name="settings_detail_location">Bluetooth and Location settings must be enabled to use the Bluefruit Playground app. \n\nPlease press \"Okay\" and turn the main location service switch then press the Back button.</string>
+
+    <!-- General -->
+
+    <string name="NSBluetoothAlwaysUsageDescription">This app needs access to Bluetooth to connect to Circuit Playground Bluefruit devices</string>
+    <string name="settings_detail_bluetooth">This app needs access to Bluetooth to connect to Circuit Playground Bluefruit devices.\n\nPlease press \"Okay\" and then turn on Bluetooth.</string>
+    <string name="settings_detail_location">Location Services should be enabled to scan bluetooth peripherals. \n\nPlease press \"Okay\" and turn the main location service switch then press the Back button.</string>
+    <string name="okay">Okay</string>
+    <string name="exit">Exit</string>
+
+    <!-- Startup -->
+    <string name="startup_bluetooth_unsupported">This device doesn\'t support Bluetooth Low Energy which is needed to connect to the Circuit Playground Bluefruit device</string>
+
+
+    <!-- Bluetooth Management -->
+
+    <string name="bluetooth_unsupported">This device doesn\'t support Bluetooth Low Energy</string>
+    <string name="bluetooth_notauthorized">This app is not authorized to use the Bluetooth Low Energy</string>
+    <string name="bluetooth_poweredoff">Bluetooth is currently powered off</string>
+
+    <string name="bluetooth_locationpermission_disabled_text">Location Services should be enabled to scan bluetooth peripherals.\nPlease, go to settings and enable it to start scanning peripherals</string>
+    <string name="bluetooth_locationpermission_title">This app needs location access</string>
+    <string name="bluetooth_locationpermission_text">Please grant location access so this app can scan for Bluetooth peripherals</string>
+    <string name="bluetooth_locationpermission_notavailable_title">Bluetooth Scanning not available</string>
+    <string name="bluetooth_locationpermission_notavailable_text">Since location access has not been granted, the app will not be able to scan for Bluetooth peripherals</string>
+    <string name="bluetooth_scanner_errorregisteringapp">App cannot be registered for bluetooth scanning.\nPlease reset bluetooth and try again.</string>
+    <string name="bluetooth_connecting_error">Error connecting to peripheral</string>
+    <string name="bluetooth_advertising_start_error">Error starting advertising</string>
+
+
+    <!-- Welcome -->
+    <string name="tip0_title">Welcome</string>
+    <string name="tip0_detail">Bluefruit Playground provides you with a variety of tools to communicate with your Circuit Playground Bluefruit device!\nCircuit Playground Bluefruit is available at the Adafruit shop.</string>
+    <string name="tip0_link_text">Adafruit shop</string>
+    <string name="tip0_link_url">https://www.adafruit.com/product/4333</string>
+    <string name="tip0_action">Let\'s get started&#8230;</string>
+    <string name="tip1_title">Power Up</string>
+    <string name="tip1_detail">First, follow the instructions here to load the correct firmware. Then, connect Circuit Playground Bluefruit to USB, AAA battery pack or a Lipoly battery to power up.</string>
+    <string name="tip1_link_text">instructions here</string>
+    <string name="tip1_link_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
+    <string name="tip1_action">Next</string>
+    <string name="tip2_title">Discover</string>
+    <string name="tip2_detail">Once Circuit Playground Bluefruit is powered, place it near your iPhone and tap the button below.</string>
+    <string name="tip2_action">Begin pairing</string>
+
+
+
+    <!-- About -->
+    <string name="about_title">About</string>
+    <string name="about_app_name">Bluefruit Playground</string>
+    <string name="about_ios_text">Bluefruit Playground is designed for use with Circuit Playground Bluefruit, available for purchase from the Adafruit shop\n\nBefore you can use this app, you\'ll need to load the uf2 firmware file on your Circuit Playground Bluefruit.\n\n\nAcknowledgements\n\nPortions of this Software may utilize the following copyrighted material, the use of which is hereby acknowledged. \n\nFlexColorPicker\nCopyright &#169;&gt; 2018 Rastislav Mirek\nhttps://github.com/RastislavMirek/FlexColorPicker\n\nCharts\nCopyright &#169;&gt; 2016 Daniel Cohen Gindi&amp;Philipp Jahoda\nhttps://github.com/danielgindi/Charts\n\nActiveLabel\nCopyright &#169;&gt; 2015 Optonaut\nhttps://github.com/optonaut/ActiveLabel.swift\n\nMSWeakTimer\nCopyright &#169;&gt; 2013 MindSnacks\nhttps://github.com/mindsnacks/MSWeakTimer</string>
+    <string name="about_ios_link0_text">Adafruit shop</string>
+    <string name="about_ios_link0_url">https://www.adafruit.com/product/4333</string>
+    <string name="about_ios_link1_text">uf2 firmware file</string>
+    <string name="about_ios_link1_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
+
+
+
+    <!-- Scanner -->
+    <string name="scanner_title">Finding CPB</string>
+
+    <string name="scanner_connecting">Connecting&#8230;</string>
+    <string name="scanner_discoveringservices">Discovering services&#8230;</string>
+    <string name="scanner_errordiscoveringservices">Error discovering peripheral services</string>
+    <string name="scanner_peripheraldisconnected">Peripheral disconnected</string>
+
+    <string name="scanner_searching">Finding Circuit Playground Bluefruit devices&#8230;</string>
+    <string name="scanner_subtitle">Select a Circuit Playground Bluefruit device to connect to:</string>
+    <string name="scanner_unnamed">&lt;Unknown&gt;</string>
+
+    <string name="scanner_problems_action">I can\'t find my device</string>
+    <string name="scanner_backbutton">Disconnect</string>
+
+    <string name="scanner_setupuart">Starting UART protocol</string>
+    <string name="uart_error_peripheralinit">Uart protocol can not be initialized</string>
+
+
+    <!-- Scanner Problems -->
+    <string name="scannerproblems_title">Troubleshooting</string>
+
+    <string name="scannerproblems_tip0_title">Turn on the CPB</string>
+    <string name="scannerproblems_tip0_details">Make sure that the Circuit Playground Bluefruit is powered on. \nVerify that the green "On" light is lit.</string>
+    <string name="scannerproblems_tip1_title">Check the Circuit Playground Bluefruit firmware</string>
+    <string name="scannerproblems_tip1_details">You\'ll need to load a specific firmware on your CPB to interact with this app.\nDownload it from the Bluefruit Playground guide at learn.adafruit.com</string>
+    <string name="scannerproblems_tip1_link_text">Bluefruit Playground guide at learn.adafruit.com</string>
+    <string name="scannerproblems_tip1_link_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
+    <string name="scannerproblems_tip2_title">Reset Circuit Playground Bluefruit</string>
+    <string name="scannerproblems_tip2_details">Try pressing the small Reset button near the center of the Circuit Playground Bluefruit.</string>
+
+
+
+    <!-- Modules -->
+    <string name="modules_title">Modules</string>
+    <string name="modules_subtitle">Each module interacts with a specific type of sensor on the Circuit Playground Bluefruit device</string>
+
+    <string name="modules_color_title">NeoPixels</string>
+    <string name="modules_color_subtitle">Control LED color &amp; animation</string>
+    <string name="modules_light_title">Light Sensor</string>
+    <string name="modules_light_subtitle">View continuous light sensor readings</string>
+    <string name="modules_button_title">Button Status</string>
+    <string name="modules_button_subtitle">View state of built-in buttons &amp; switch</string>
+    <string name="modules_tone_title">Tone Generator</string>
+    <string name="modules_tone_subtitle">Turn CPB into a musical instrument</string>
+    <string name="modules_accelerometer_title">Accelerometer</string>
+    <string name="modules_accelerometer_subtitle">View orientation based on accelerometer data</string>
+    <string name="modules_temperature_title">Temperature</string>
+    <string name="modules_temperature_subtitle">View current temperature readings</string>
+
+
+    <!-- Neopixels -->
+    <string name="neopixels_title">NeoPixels</string>
+    <string name="neopixels_help">NeoPixels mode allows you to control the color of CPB’s built-in NeoPixel LEDs individually, as a group, or by playing preset animations.\n\n• Select NeoPixels to control by tapping them in the Circuit Playground Bluefruit image.\n\n• Set the color of selected NeoPixels by choosing a color from the Color Palette or Color Wheel at the bottom.\n\n• Tap a light sequence to trigger an animation using all of the NeoPixels.</string>
+
+    <string name="neopixels_sequence_title">Light Sequence</string>
+    <string name="neopixels_sequence_speed">Speed</string>
+    <string name="neopixels_palette_title">Color Palette</string>
+    <string name="neopixels_palette_brightness">Brightness</string>
+    <string name="neopixels_colorwheel_title">Color Wheel</string>
+    <string name="neopixels_colorwheel_brightness">Brightness</string>
+
+
+
+    <!-- Light Sensor -->
+    <string name="lightsensor_title">Light Sensor</string>
+    <string name="lightsensor_help">Light Sensor mode allows you to view the amount of light detected by Circuit Playground Bluefruit’s built-in ALS-PT19 light sensor.\n\n• The current light level reading is displayed at the bottom of the screen. \n\n• Try shining a flashlight on the CPB and watch the values change in realtime</string>
+
+    <string name="lightsensor_panel_title">Luminance Reading</string>
+    <string name="lightsensor_panel_unit">Light level</string>
+
+
+    <!-- Button Status -->
+    <string name="buttonstatus_title">Button Status</string>
+    <string name="buttonstatus_help">Button Status mode shows which buttons are currently being pressed on Circuit Playground Bluefruit. \n\n• Currently active buttons are displayed in orange at the bottom\n\n• Current state of the built-in slide switch is displayed as an arrow indicating its position</string>
+
+    <string name="buttonstatus_panel_title">Buttons Pressed</string>
+    <string name="buttonstatus_panel_switch">Switch</string>
+    <string name="buttonstatus_panel_button_a">Button A</string>
+    <string name="buttonstatus_panel_button_b">Button B</string>
+
+
+
+    <!-- Tone Generator -->
+    <string name="tonegenerator_title">Tone Generator</string>
+    <string name="tonegenerator_help">Tone Generator mode allows you to use Circuit Playground Bluefruit as a simple music synthesizer.\n\n• Press a key on the piano keyboard to play a corresponding tone on the built-in piezo buzzer.\n\n• Press keys in sequence to perform a song</string>
+
+
+    <!-- Accelerometer -->
+    <string name="accelerometer_title">Accelerometer</string>
+    <string name="accelerometer_help">Accelerometer mode uses readings from Circuit Playground Bluefruit’s LIS3DH 3-axis XYZ accelerometer to determine the board’s current orientation.\n \n• Orientation is reflected in the position of the 3D model\n\n• Individual values are displayed in the space at the bottom of the screen.\n\n• Drag the 3D model in any direction to apply a rotation offset.\n\n• Double tap the 3D model to remove rotation offset</string>
+
+    <string name="accelerometer_panel_title">Device orientation</string>
+    <string name="accelerometer_panel_accelerometer_title">Accelerometer (m/s²):</string>
+    <string name="accelerometer_panel_eulerangles_title">Euler Angles (degrees):</string>
+
+
+    <!-- Temperature -->
+    <string name="temperature_title">Temperature</string>
+    <string name="temperature_help">Temperature mode displays continuous temperature readings from Circuit Playground Bluefruit’s built-in thermistor. \n\n• Switch between Fahrenheit and Celsius units by tapping the °F/°C button in the lower right corner.\n\n• Previous temperature values are recorded and displayed in the graph at the bottom.\n\n• Try breathing hot air on the CPB and watch the values change in realtime</string>
+    <string name="temperature_units_celsius">ºC</string>
+    <string name="temperature_units_farenheit">ºF</string>
+
+    <string name="temperature_panel_title">Temperature Reading</string>
+    <string name="temperature_chart_nodata">No chart data available</string>
+
+
+    <!-- Help -->
+    <string name="help_title">Help</string>
+
+
+    <!-- Common -->
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_error">Error</string>
+    <string name="dialog_notice">Notice</string>
+    <string name="dialog_dontshowagain">Don\'t show again</string>
+    <string name="dialog_done">Done</string>
+
+
+
 </resources>

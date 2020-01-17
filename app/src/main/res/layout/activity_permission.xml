@@ -31,7 +31,7 @@
         android:layout_below="@id/titleTxt"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:text="@string/permision_detail"
+        android:text="@string/bluetooth_locationpermission_text"
         />
 
     <Button
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:layout_marginTop="50dp"
-        android:text="Okay"
+        android:text="@string/okay"
         android:textSize="24sp"
         android:onClick="requestPermission"
         android:layout_centerHorizontal="true"
@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:padding="20dp"
-        android:text="Exit"
+        android:text="@string/exit"
         android:textSize="22sp"
         android:onClick="close"
         />

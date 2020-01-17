@@ -11,11 +11,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Disconnect"
+        android:text="@string/scanner_backbutton"
         android:id="@+id/backTxt"
         android:textColor="#FFFFFF"
-        android:paddingLeft="10dp"
-        android:drawableLeft="@drawable/ic_back_arrow"
+        android:paddingStart="10dp"
+        android:drawableStart="@drawable/ic_back_arrow"
         android:background="#009ee0"
         android:textSize="26sp"
         android:onClick="disconnectBluefruit"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleTxt"
-        android:text="Modules"
+        android:text="@string/modules_title"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -35,63 +35,21 @@
 
         />
 
-    <!--<Button
-        android:id="@+id/toneGeneratorBtn"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tone_generator"
-        android:onClick="startToneGeneratorActivity"
+        android:text="@string/modules_subtitle"
+        android:id="@+id/modulesSubtitleTxt"
+        android:layout_below="@id/titleTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:background="#009ee0"
+        android:textSize="20sp"
+        android:gravity="center"
         />
-
-    <Button
-        android:id="@+id/temperatureBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toneGeneratorBtn"
-        android:text="Temperature"
-        android:onClick="startTemperatureActivity"
-        />
-
-
-    <Button
-        android:id="@+id/lightBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/temperatureBtn"
-        android:text="Light Sensor"
-        android:onClick="startLightActivity"
-        />
-
-    <Button
-        android:id="@+id/buttonsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/lightBtn"
-        android:text="Buttons"
-        android:onClick="startButtonsActivity"
-        />
-
-    <Button
-        android:id="@+id/accelerometerBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/buttonsBtn"
-        android:text="Accelerometer"
-        android:onClick="startAccelerometerActivity"
-        />
-
-    <Button
-        android:id="@+id/neopixelsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/accelerometerBtn"
-        android:text="Neopixels"
-        android:onClick="startNeopixelsActivity"
-        />
-        -->
 
     <ListView
-        android:layout_below="@id/titleTxt"
+        android:layout_below="@id/modulesSubtitleTxt"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="0dp"

@@ -44,7 +44,7 @@ public class EnableSettingsActivity extends AppCompatActivity {
         int servicesComplete = 0;
 
         if (bluetoothAdapter == null || !bluetoothAdapter.isEnabled()) {
-            detailTxt.setText(R.string.settings_detail_bluetooth);
+            detailTxt.setText(R.string.NSBluetoothAlwaysUsageDescription);
             requestingLocation = false;
         }else{
             servicesComplete++;

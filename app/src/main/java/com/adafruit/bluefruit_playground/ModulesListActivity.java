@@ -35,12 +35,12 @@ public class ModulesListActivity extends Activity {
 
         ModulesAdapter modulesAdapter = new ModulesAdapter(this, -1);
 
-        modulesAdapter.add(new CPBModule(Color.rgb(0,0,250), "Neopixels","Control LED color & animation"));
-        modulesAdapter.add(new CPBModule(Color.rgb(236,228,0), "Light Sensor","View continuous light sensor readings."));
-        modulesAdapter.add(new CPBModule(Color.rgb(165,0,219), "Button Status","View state of built-in buttons & switch"));
-        modulesAdapter.add(new CPBModule(Color.rgb(18,186,0), "Tone Generator","Turn CPB into musical instrument"));
-        modulesAdapter.add(new CPBModule(Color.rgb(0,100,237), "Accelerometer","View orientation based on accelerometer data"));
-        modulesAdapter.add(new CPBModule(Color.rgb(220,13,0), "Temperature","View current temperature readings"));
+        modulesAdapter.add(new CPBModule(Color.rgb(0,0,250), getString(R.string.modules_color_title),getString(R.string.modules_color_subtitle)));
+        modulesAdapter.add(new CPBModule(Color.rgb(236,228,0), getString(R.string.modules_light_title),getString(R.string.modules_light_subtitle)));
+        modulesAdapter.add(new CPBModule(Color.rgb(165,0,219), getString(R.string.modules_button_title),getString(R.string.modules_button_subtitle)));
+        modulesAdapter.add(new CPBModule(Color.rgb(18,186,0), getString(R.string.modules_tone_title),getString(R.string.modules_tone_subtitle)));
+        modulesAdapter.add(new CPBModule(Color.rgb(0,100,237), getString(R.string.modules_accelerometer_title),getString(R.string.modules_accelerometer_subtitle)));
+        modulesAdapter.add(new CPBModule(Color.rgb(220,13,0), getString(R.string.modules_temperature_title),getString(R.string.modules_temperature_subtitle)));
 
         modulesList.setAdapter(modulesAdapter);
 
