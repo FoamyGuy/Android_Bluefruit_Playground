@@ -89,13 +89,13 @@ public class PairingActivity extends Activity {
 
                 int status = intent.getIntExtra("status", -1);
                 if (status == BluefruitService.STATE_CONNECTING){
-                    progressDialog.setMessage("Connecting");
+                    progressDialog.setMessage(getString(R.string.scanner_connecting));
                 }else if (status == BluefruitService.STATE_CONNECTED){
-                    progressDialog.setMessage("Connected");
+                    progressDialog.setMessage(getString(R.string.scanner_connected));
                 }else if (status == BluefruitService.STATE_DISCOVERING){
-                    progressDialog.setMessage("Discovering Services");
+                    progressDialog.setMessage(getString(R.string.scanner_discoveringservices));
                 }else if (status == BluefruitService.STATE_SERVICES_DISCOVERED){
-                    progressDialog.setMessage("Services Discovered");
+                    progressDialog.setMessage(getString(R.string.scanner_servicesdisconvered));
                     progressDialog.dismiss();
 
                     stopServiceOnStop = false;
@@ -103,7 +103,6 @@ public class PairingActivity extends Activity {
                     Intent modulesIntent = new Intent(context, ModulesListActivity.class);
                     startActivity(modulesIntent);
                     finish();
-
                 }
             }
         };
@@ -121,12 +120,11 @@ public class PairingActivity extends Activity {
                     scanResultAdapter.insertOrUpdate(incScanResult);
                 }else if(intent.getAction().equals(BluefruitService.ACTION_SCANNING_STOPPED)){
                     //scanningTxt.setVisibility(View.INVISIBLE);
-                    scanningTxt.setText("Press refresh icon to scan");
+                    scanningTxt.setText(getString(R.string.scanner_press_to_search));
                 }
             }
         };
         registerReceiver(scanResultReceiver, filter);
-
 
         bluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
@@ -228,7 +226,7 @@ public class PairingActivity extends Activity {
         sendBroadcast(requestScanIntent);
         Log.i(TAG, "sent request scan broadcast");
         //scanningTxt.setVisibility(View.VISIBLE);
-        scanningTxt.setText("Scanning...");
+        scanningTxt.setText(R.string.scanner_searching);
     }
 
     public void exit(View view) {
