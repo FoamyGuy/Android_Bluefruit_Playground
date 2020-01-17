@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/bottomPanelLbl"
         android:layout_marginTop="6dp"
-        android:text="Light Sequence"
+        android:text="@string/neopixels_sequence_title"
         android:textColor="#000000"
         android:textSize="26sp"
 
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekBarLbl"
         android:layout_margin="10dp"
-        android:text="Speed"
+        android:text="@string/neopixels_sequence_speed"
         android:textColor="#000000"
         android:textSize="22sp"
         android:layout_alignParentBottom="true"

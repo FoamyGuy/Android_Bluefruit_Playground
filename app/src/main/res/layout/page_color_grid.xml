@@ -12,7 +12,7 @@
         android:layout_centerHorizontal="true"
         android:id="@+id/bottomPanelLbl"
         android:layout_marginTop="6dp"
-        android:text="Color Palette"
+        android:text="@string/neopixels_palette_title"
         android:textColor="#000000"
         android:textSize="26sp"
 
@@ -156,7 +156,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Brightness"
+        android:text="@string/neopixels_palette_brightness"
         android:layout_margin="10dp"
         android:layout_marginStart="16dp"
         android:layout_alignParentBottom="true"

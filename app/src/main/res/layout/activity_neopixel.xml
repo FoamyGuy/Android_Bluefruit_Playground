@@ -15,7 +15,7 @@
         android:drawableStart="@drawable/ic_back_arrow"
         android:onClick="backToModulesList"
         android:paddingStart="10dp"
-        android:text="@string/modules"
+        android:text="@string/modules_title"
         android:textColor="#FFFFFF"
         android:textSize="26sp"
         tools:ignore="OnClick,RtlSymmetry" />
@@ -27,7 +27,7 @@
         android:layout_below="@+id/backTxt"
         android:background="#0093d1"
         android:padding="8dp"
-        android:text="Neopixels"
+        android:text="@string/modules_color_title"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
