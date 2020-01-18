@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PairingHelpActivity"
+    android:background="#009ee0"
+    >
+    <TextView
+        android:id="@+id/backTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009ee0"
+        android:drawableStart="@drawable/ic_back_arrow"
+        android:onClick="backToPairing"
+        android:paddingStart="10dp"
+        android:text="@string/dialog_done"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        tools:ignore="OnClick,RtlSymmetry" />
+
+
+
+    <TextView
+        android:id="@+id/titleTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backTxt"
+        android:background="#0093d1"
+        android:padding="8dp"
+        android:text="@string/help_title"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+
+        />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleTxt"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scannerTip0Title"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:text="@string/scannerproblems_tip0_title"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scannerTip0Detail"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:text="@string/scannerproblems_tip0_details"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/scannerTip1Title"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:text="@string/scannerproblems_tip1_title"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scannerTip1Detail"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:text="@string/scannerproblems_tip1_details"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/scannerTip2Title"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:text="@string/scannerproblems_tip2_title"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scannerTip2Detail"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:padding="8dp"
+                android:text="@string/scannerproblems_tip2_details"
+                />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

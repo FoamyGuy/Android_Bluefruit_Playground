@@ -1,28 +1,24 @@
 package com.adafruit.bluefruit_playground;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import static com.adafruit.bluefruit_playground.TextLinker.addLink;
 
-public class AboutActivity extends Activity {
+public class PairingHelpActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
+        setContentView(R.layout.activity_pairing_help);
 
-        TextView aboutTxt = findViewById(R.id.aboutTxt);
-        addLink(aboutTxt, getString(R.string.about_link0_text), getString(R.string.about_link0_url));
-        addLink(aboutTxt, getString(R.string.about_link1_text), getString(R.string.about_link1_url));
-        addLink(aboutTxt, getString(R.string.about_link2_text), getString(R.string.about_link2_url));
+        TextView tip1DetailTxt = findViewById(R.id.scannerTip1Detail);
+        addLink(tip1DetailTxt, getString(R.string.scannerproblems_tip1_link_text), getString(R.string.scannerproblems_tip1_link_url));
     }
 
     public void backToPairing(View view) {

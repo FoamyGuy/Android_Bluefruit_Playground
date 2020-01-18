@@ -244,4 +244,9 @@ public class PairingActivity extends Activity {
             startScan(view);
         }
     }
+
+    public void startPairingHelp(View view) {
+        Intent pairingHelpIntent = new Intent(this, PairingHelpActivity.class);
+        startActivity(pairingHelpIntent);
+    }
 }

@@ -82,4 +82,15 @@
         android:id="@+id/scanResultList"
         />
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/scanner_problems_action"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="40dp"
+        android:onClick="startPairingHelp"
+        />
 </RelativeLayout>

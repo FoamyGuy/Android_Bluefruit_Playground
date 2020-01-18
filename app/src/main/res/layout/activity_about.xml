@@ -48,7 +48,7 @@
             android:id="@+id/aboutTxt"
             android:text="@string/about_text"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:layout_below="@+id/backTxt"
             android:padding="8dp"
 

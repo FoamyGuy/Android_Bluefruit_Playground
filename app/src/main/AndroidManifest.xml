@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".PairingHelpActivity"></activity>
         <activity
             android:name=".HelpActivity"
             android:screenOrientation="portrait"
