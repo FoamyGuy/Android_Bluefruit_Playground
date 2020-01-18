@@ -20,6 +20,7 @@ public class AboutActivity extends Activity {
         TextView aboutTxt = findViewById(R.id.aboutTxt);
         addLink(aboutTxt, getString(R.string.about_link0_text), getString(R.string.about_link0_url));
         addLink(aboutTxt, getString(R.string.about_link1_text), getString(R.string.about_link1_url));
+        addLink(aboutTxt, getString(R.string.about_link2_text), getString(R.string.about_link2_url));
 
 
     }
