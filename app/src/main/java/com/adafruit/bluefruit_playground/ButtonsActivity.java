@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.adafruit.bluefruit_playground.R;
@@ -161,6 +163,15 @@ public class ButtonsActivity extends ModuleActivity {
 
         Intent enableButtonsNotify = new Intent(BluefruitService.ACTION_ENABLE_BUTTONS_NOTIFY);
         sendBroadcast(enableButtonsNotify);
+    }
+
+    public void startHelpActivity(View view) {
+        Intent returnToIntent = new Intent(this, ButtonsActivity.class);
+        stopServiceOnStop = false;
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("helpStr", getString(R.string.buttonstatus_help));
+        helpIntent.putExtra("returnTo", returnToIntent);
+        startActivity(helpIntent);
     }
 
     @Override

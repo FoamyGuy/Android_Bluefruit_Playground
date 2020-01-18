@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -140,6 +141,15 @@ public class AccelerometerActivity extends ModuleActivity {
         //float angleY = 0.98*angleY + 0.02*accelAngleY;
         Log.d(TAG, "euler: " + accelAngleX + ", " + accelAngleY);
         return accelAngleX + "," + accelAngleY + ",0";
+    }
+
+    public void startHelpActivity(View view) {
+        Intent returnToIntent = new Intent(this, AccelerometerActivity.class);
+        stopServiceOnStop = false;
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("helpStr", getString(R.string.accelerometer_help));
+        helpIntent.putExtra("returnTo", returnToIntent);
+        startActivity(helpIntent);
     }
 
     @Override

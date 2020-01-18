@@ -264,6 +264,15 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
     }
 
+    public void startHelpActivity(View view) {
+        Intent returnToIntent = new Intent(this, NeopixelActivity.class);
+        stopServiceOnStop = false;
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("helpStr", getString(R.string.neopixels_help));
+        helpIntent.putExtra("returnTo", returnToIntent);
+        startActivity(helpIntent);
+    }
+
     private class ColorPickerAdapter extends PagerAdapter {
 
         LayoutInflater inflater;

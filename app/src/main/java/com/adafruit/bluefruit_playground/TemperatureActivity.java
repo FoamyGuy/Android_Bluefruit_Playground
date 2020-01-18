@@ -93,6 +93,16 @@ public class TemperatureActivity extends ModuleActivity {
 
     }
 
+
+    public void startHelpActivity(View view) {
+        Intent returnToIntent = new Intent(this, TemperatureActivity.class);
+        stopServiceOnStop = false;
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("helpStr", getString(R.string.temperature_help));
+        helpIntent.putExtra("returnTo", returnToIntent);
+        startActivity(helpIntent);
+    }
+
     @Override
     protected void onStop() {
         super.onStop();

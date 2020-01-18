@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -38,6 +39,15 @@ public class LightActivity extends ModuleActivity {
 
         Intent enableLightNotify = new Intent(BluefruitService.ACTION_ENABLE_LIGHT_NOTIFY);
         sendBroadcast(enableLightNotify);
+    }
+
+    public void startHelpActivity(View view) {
+        Intent returnToIntent = new Intent(this, LightActivity.class);
+        stopServiceOnStop = false;
+        Intent helpIntent = new Intent(this, HelpActivity.class);
+        helpIntent.putExtra("helpStr", getString(R.string.lightsensor_help));
+        helpIntent.putExtra("returnTo", returnToIntent);
+        startActivity(helpIntent);
     }
 
 

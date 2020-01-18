@@ -20,6 +20,8 @@
         android:textSize="26sp"
         tools:ignore="OnClick,RtlSymmetry" />
 
+
+
     <TextView
         android:id="@+id/titleTxt"
         android:layout_width="match_parent"
@@ -32,6 +34,17 @@
         android:textSize="30sp"
         android:textStyle="bold"
 
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/help"
+        android:layout_alignTop="@id/titleTxt"
+        android:layout_alignBottom="@id/titleTxt"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:onClick="startHelpActivity"
         />
 
     <include
