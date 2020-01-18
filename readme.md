@@ -19,10 +19,8 @@ When you are done remember to disable Bluetooth and Location services if you are
 
 Current Known Issues / Todo list:
 * General
-    - all hard coded strings should be moved to strings.xml file
     - add reminder to EnableSettingsActivity to turn off the settings after user is done.
     - welcome activity needs to be implemented.
-    - problems button in pairing activity needs to be implemented
     
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading

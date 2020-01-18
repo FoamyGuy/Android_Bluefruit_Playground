@@ -1,5 +1,6 @@
 package com.adafruit.bluefruit_playground.activities.modules;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +23,7 @@ import com.adafruit.bluefruit_playground.activities.HelpActivity;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.text.NumberFormat;
+import java.util.Objects;
 
 import androidx.annotation.RequiresApi;
 import androidx.webkit.WebViewAssetLoader;
@@ -39,6 +41,7 @@ public class AccelerometerActivity extends ModuleActivity {
     TextView zAngleTxt;
 
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +57,7 @@ public class AccelerometerActivity extends ModuleActivity {
 
         WebView wv;
         WebView.setWebContentsDebuggingEnabled(true);
-        wv = (WebView) findViewById(R.id.modelWeb);
+        wv = findViewById(R.id.modelWeb);
         wv.getSettings().setJavaScriptEnabled(true);
 
         wv.getSettings().setAllowFileAccess(true);
@@ -62,10 +65,6 @@ public class AccelerometerActivity extends ModuleActivity {
         wv.getSettings().setAllowFileAccessFromFileURLs(true);
         wv.getSettings().setAllowUniversalAccessFromFileURLs(true);
         Log.d(TAG, "loading html");
-        //wv.loadUrl("file:///android_asset/www/cpb_3d_model_wgt/index.html");
-        //wv.loadUrl("http://192.168.1.117:8000/");
-        //wv.loadUrl("http://localhost:8000/");
-
 
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
@@ -77,7 +76,7 @@ public class AccelerometerActivity extends ModuleActivity {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view,
                                                               WebResourceRequest request) {
-               if (!request.isForMainFrame() && request.getUrl().getPath().endsWith(".js")) {
+               if (!request.isForMainFrame() && Objects.requireNonNull(request.getUrl().getPath()).endsWith(".js")) {
                     Log.d(TAG, " js file request need to set mime/type " + request.getUrl().getPath());
                    try {
                        return new WebResourceResponse("application/javascript", null, new BufferedInputStream(view.getContext().getAssets().open(request.getUrl().getPath().replace("/assets/",""))));
@@ -116,14 +115,26 @@ public class AccelerometerActivity extends ModuleActivity {
                 nf.setMaximumFractionDigits(2);
                 nf.setMinimumIntegerDigits(1);
 
-                xTxt.setText("x: " + nf.format(xVal));
-                yTxt.setText("y: " + nf.format(yVal));
-                zTxt.setText("z: " + nf.format(zVal));
+                xTxt.setText(getString(R.string.accelerometer_panel_x_template).replace("%s", nf.format(xVal)));
+                yTxt.setText(getString(R.string.accelerometer_panel_y_template).replace("%s", nf.format(yVal)));
+                zTxt.setText(getString(R.string.accelerometer_panel_z_template).replace("%s", nf.format(zVal)));
+
 
                 String eulerAnglesCsv = eulerAngles(xVal, yVal, zVal);
-                xAngleTxt.setText("x: " + nf.format(Float.valueOf(eulerAnglesCsv.split(",")[0])));
-                yAngleTxt.setText("y: " + nf.format(Float.valueOf(eulerAnglesCsv.split(",")[1])));
-                zAngleTxt.setText("z: " + nf.format(Float.valueOf(eulerAnglesCsv.split(",")[2])));
+                xAngleTxt.setText(
+                        getString(R.string.accelerometer_panel_x_template).replace(
+                                "%s",nf.format(Float.valueOf(eulerAnglesCsv.split(",")[0]))
+                        ));
+
+                yAngleTxt.setText(
+                        getString(R.string.accelerometer_panel_y_template).replace(
+                                "%s",nf.format(Float.valueOf(eulerAnglesCsv.split(",")[1]))
+                        ));
+
+                zAngleTxt.setText(
+                        getString(R.string.accelerometer_panel_z_template).replace(
+                                "%s",nf.format(Float.valueOf(eulerAnglesCsv.split(",")[2]))
+                        ));
 
                 wv.loadUrl("javascript:setRotation(" + eulerAngles(xVal, yVal, zVal) +")");
 
@@ -137,7 +148,6 @@ public class AccelerometerActivity extends ModuleActivity {
 
 
     private String  eulerAngles(float accelX, float accelY, float accelZ){
-
         float accelAngleX = (float)(Math.atan2(accelY, accelZ) * 180/Math.PI);
         float accelAngleY = (float)(Math.atan2(-accelX, Math.sqrt(accelY*accelY + accelZ*accelZ)) * 180/Math.PI);
 
@@ -163,7 +173,6 @@ public class AccelerometerActivity extends ModuleActivity {
         Intent i = new Intent(BluefruitService.ACTION_DISABLE_ACCELEROMETER_NOTIFY);
         sendBroadcast(i);
         Log.d(TAG, "sent disable accel notify");
-
 
         try {
             unregisterReceiver(accelerometerDataReceiver);

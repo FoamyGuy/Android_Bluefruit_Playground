@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#009ee0"
-        android:drawableLeft="@drawable/ic_back_arrow"
-        android:paddingLeft="10dp"
+        android:drawableStart="@drawable/ic_back_arrow"
+        android:paddingStart="10dp"
         android:text="@string/modules"
         android:textColor="#FFFFFF"
         android:onClick="backToModulesList"
@@ -25,7 +25,7 @@
         android:layout_below="@+id/backTxt"
         android:background="#0093d1"
         android:padding="8dp"
-        android:text="Accelerometer"
+        android:text="@string/accelerometer_title"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -65,7 +65,7 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/bottomPanelLbl"
             android:layout_marginTop="10dp"
-            android:text="Device Orientation"
+            android:text="@string/accelerometer_panel_title"
             android:textColor="#000000"
             android:textSize="26sp"
 
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Accelerometer (m/s):" />
+                android:text="@string/accelerometer_panel_accelerometer_title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -137,7 +137,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:text="Euler Angles (degrees):" />
+                android:text="@string/accelerometer_panel_eulerangles_title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
