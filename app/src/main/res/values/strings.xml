@@ -165,6 +165,8 @@
     <!-- Temperature -->
     <string name="temperature_title">Temperature</string>
     <string name="temperature_help">Temperature mode displays continuous temperature readings from Circuit Playground Bluefruit’s built-in thermistor. \n\n• Switch between Fahrenheit and Celsius units by tapping the °F/°C button in the lower right corner.\n\n• Previous temperature values are recorded and displayed in the graph at the bottom.\n\n• Try breathing hot air on the CPB and watch the values change in realtime</string>
+    <string name="temperature_celsius_output_template">%sºC</string>
+    <string name="temperature_farenheit_output_template">%sºF</string>
     <string name="temperature_units_celsius">ºC</string>
     <string name="temperature_units_farenheit">ºF</string>
 

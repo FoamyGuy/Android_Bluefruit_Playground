@@ -22,7 +22,7 @@ public class TemperatureActivity extends ModuleActivity {
     GraphView graph;
     int curTick = 0;
     TextView temperatureTxt;
-    String curUnitsLbl = "C";
+
 
     LineGraphSeries<DataPoint> celsiusSeries;
     LineGraphSeries<DataPoint> fahrenheitSeries;
@@ -76,9 +76,9 @@ public class TemperatureActivity extends ModuleActivity {
                 nf.setMaximumFractionDigits(2);
 
                 if(showingCelsius) {
-                    temperatureTxt.setText(nf.format(temperature) + "°" + curUnitsLbl);
+                    temperatureTxt.setText(getString(R.string.temperature_celsius_output_template).replace("%s", nf.format(temperature)));
                 }else{
-                    temperatureTxt.setText(nf.format(celsiusToFahrenheit(temperature)) + "°" + curUnitsLbl);
+                    temperatureTxt.setText(getString(R.string.temperature_farenheit_output_template).replace("%s", nf.format(celsiusToFahrenheit(temperature))));
                 }
             }
         };
@@ -114,14 +114,12 @@ public class TemperatureActivity extends ModuleActivity {
             graph.removeSeries(celsiusSeries);
             graph.addSeries(fahrenheitSeries);
             showingCelsius = false;
-            curUnitsLbl = "F";
-            ((TextView)view).setText("°C");
+            ((TextView)view).setText(R.string.temperature_units_celsius);
         }else{
             graph.removeSeries(fahrenheitSeries);
             graph.addSeries(celsiusSeries);
             showingCelsius = true;
-            curUnitsLbl = "C";
-            ((TextView)view).setText("°F");
+            ((TextView)view).setText(R.string.temperature_units_farenheit);
         }
 
     }
