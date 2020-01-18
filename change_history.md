@@ -1,3 +1,12 @@
+# DEBUG build v09
+### Uninstall any previous version before installing this one!!
+- package name changed to com.adafruit... so Android system will see this as a different app than previous versions. Make sure to uninstall any previous ones before installing this one.
+- Neo pixel animation speed slider has a larger range
+- About page implemented
+- Help pages implemented
+- Utilizing strings.xml more
+- switching back to assets web loader for accelerometer activity
+
 # DEBUG build v08
 - Changing the way neopixel animations work "under the hood". Now when it's set to the highest speed it will write the next animation frame as soon as the previous frame is finished writing. Lowering the speed setting adds extra delay from there. This could make the animations run a bit faster on some devices if they are able to write the BLE characteristic quicker. It will also solve the issue where the animations could sometimes keep running after you tried to turn them off with trashcan icon.
 
