@@ -21,7 +21,6 @@ Current Known Issues / Todo list:
 * General
     - pairing activity list of devices should show signal strength icons instead of raw value
     - Module Help pages need to be implemented
-    - Switch package to adafruit namespace
     - all hard coded strings should be moved to strings.xml file
     - add reminder to EnableSettingsActivity to turn off the settings after user is done.
     - welcome activity needs to be implemented.

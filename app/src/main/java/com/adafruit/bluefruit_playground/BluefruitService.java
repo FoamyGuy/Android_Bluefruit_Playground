@@ -72,14 +72,9 @@ public class BluefruitService extends Service {
     public static final boolean BUTTON_POSITION_PRESSED = true;
     public static final boolean BUTTON_POSITION_UNPRESSED = false;
 
-    public final static String ACTION_GATT_CONNECTED = "com.foamyguy.bluefruit_playground.ACTION_GATT_CONNECTED";
-    public final static String ACTION_GATT_DISCONNECTED = "com.foamyguy.bluefruit_playground.ACTION_GATT_DISCONNECTED";
-
-    /*
-    public final static String ACTION_GATT_SERVICES_DISCOVERED = "com.foamyguy.bluefruit_playground.ACTION_GATT_SERVICES_DISCOVERED";
-    public final static String ACTION_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_DATA_AVAILABLE";
-    public final static String EXTRA_DATA = "com.foamyguy.bluefruit_playground.EXTRA_DATA";
-     */
+    public final static String ACTION_GATT_CONNECTED = "com.adafruit.bluefruit_playground.ACTION_GATT_CONNECTED";
+    public final static String ACTION_GATT_DISCONNECTED = "com.adafruit.bluefruit_playground.ACTION_GATT_DISCONNECTED";
+    
 
     private BluetoothAdapter bluetoothAdapter;
     private boolean mScanning;
@@ -102,43 +97,43 @@ public class BluefruitService extends Service {
     private int connectionState = STATE_DISCONNECTED;
     private int writingState = STATE_NOT_WRITING;
 
-    public static final String ACTION_REQUEST_SCAN = "com.foamyguy.bluefruit_playground.ACTION_REQUEST_SCAN";
-    public static final String ACTION_SCANNING_STOPPED = "com.foamyguy.bluefruit_playground.ACTION_SCANNING_STOPPED";
-    public static final String ACTION_SCAN_RESULT_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_SCAN_RESULT_AVAILABLE";
+    public static final String ACTION_REQUEST_SCAN = "com.adafruit.bluefruit_playground.ACTION_REQUEST_SCAN";
+    public static final String ACTION_SCANNING_STOPPED = "com.adafruit.bluefruit_playground.ACTION_SCANNING_STOPPED";
+    public static final String ACTION_SCAN_RESULT_AVAILABLE = "com.adafruit.bluefruit_playground.ACTION_SCAN_RESULT_AVAILABLE";
 
 
-    public static final String ACTION_ATTEMPT_CONNECT = "com.foamyguy.bluefruit_playground.ACTION_ATTEMPT_CONNECT";
-    public static final String ACTION_DISCONNECT = "com.foamyguy.bluefruit_playground.ACTION_DISCONNECT";
+    public static final String ACTION_ATTEMPT_CONNECT = "com.adafruit.bluefruit_playground.ACTION_ATTEMPT_CONNECT";
+    public static final String ACTION_DISCONNECT = "com.adafruit.bluefruit_playground.ACTION_DISCONNECT";
 
-    public static final String ACTION_CHECK_CONNECTION = "com.foamyguy.bluefruit_playground.ACTION_CHECK_CONNECTION";
-    public static final String ACTION_CHECK_CONNECTION_RESULT = "com.foamyguy.bluefruit_playground.ACTION_CHECK_CONNECTION_RESULT";
-    public static final String ACTION_STOP_SERVICE = "com.foamyguy.bluefruit_playground.ACTION_STOP_SERVICE";
+    public static final String ACTION_CHECK_CONNECTION = "com.adafruit.bluefruit_playground.ACTION_CHECK_CONNECTION";
+    public static final String ACTION_CHECK_CONNECTION_RESULT = "com.adafruit.bluefruit_playground.ACTION_CHECK_CONNECTION_RESULT";
+    public static final String ACTION_STOP_SERVICE = "com.adafruit.bluefruit_playground.ACTION_STOP_SERVICE";
 
-    public static final String ACTION_CONNECTION_STATUS = "com.foamyguy.bluefruit_playground.ACTION_CONNECTION_STATUS";
-
-
-    public static final String ACTION_ENABLE_TEMPERATURE_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_ENABLE_TEMPERATURE_NOTIFY";
-    public static final String ACTION_ENABLE_ACCELEROMETER_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_ENABLE_ACCELEROMETER_NOTIFY";
-    public static final String ACTION_ENABLE_BUTTONS_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_ENABLE_BUTTONS_NOTIFY";
-    public static final String ACTION_ENABLE_LIGHT_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_ENABLE_LIGHT_NOTIFY";
-
-    public static final String ACTION_DISABLE_TEMPERATURE_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_DISABLE_TEMPERATURE_NOTIFY";
-    public static final String ACTION_DISABLE_LIGHT_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_DISABLE_LIGHT_NOTIFY";
-    public static final String ACTION_DISABLE_BUTTONS_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_DISABLE_BUTTONS_NOTIFY";
-    public static final String ACTION_DISABLE_ACCELEROMETER_NOTIFY = "com.foamyguy.bluefruit_playground.ACTION_DISABLE_ACCELEROMETER_NOTIFY";
-
-    public static final String ACTION_PLAY_TONE = "com.foamyguy.bluefruit_playground.ACTION_PLAY_TONE";
-    public static final String ACTION_SET_NEOPIXELS = "com.foamyguy.bluefruit_playground.ACTION_SET_NEOPIXELS";
+    public static final String ACTION_CONNECTION_STATUS = "com.adafruit.bluefruit_playground.ACTION_CONNECTION_STATUS";
 
 
-    public static final String ACTION_PLAY_NEOPIXEL_ANIMATION = "com.foamyguy.bluefruit_playground.ACTION_PLAY_NEOPIXEL_ANIMATION";
-    public static final String ACTION_SET_NEOPIXEL_ANIMATION_DELAY = "com.foamyguy.bluefruit_playground.ACTION_SET_NEOPIXEL_ANIMATION_DELAY";
-    public static final String ACTION_STOP_NEOPIXEL_ANIMATION = "com.foamyguy.bluefruit_playground.ACTION_STOP_NEOPIXEL_ANIMATION";
+    public static final String ACTION_ENABLE_TEMPERATURE_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_ENABLE_TEMPERATURE_NOTIFY";
+    public static final String ACTION_ENABLE_ACCELEROMETER_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_ENABLE_ACCELEROMETER_NOTIFY";
+    public static final String ACTION_ENABLE_BUTTONS_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_ENABLE_BUTTONS_NOTIFY";
+    public static final String ACTION_ENABLE_LIGHT_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_ENABLE_LIGHT_NOTIFY";
 
-    public static final String ACTION_LIGHT_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_LIGHT_DATA_AVAILABLE";
-    public static final String ACTION_ACCELEROMETER_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_ACCELEROMETER_DATA_AVAILABLE";
-    public static final String ACTION_BUTTONS_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_BUTTONS_DATA_AVAILABLE";
-    public static final String ACTION_TEMPERATURE_DATA_AVAILABLE = "com.foamyguy.bluefruit_playground.ACTION_TEMPERATURE_DATA_AVAILABLE";
+    public static final String ACTION_DISABLE_TEMPERATURE_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_DISABLE_TEMPERATURE_NOTIFY";
+    public static final String ACTION_DISABLE_LIGHT_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_DISABLE_LIGHT_NOTIFY";
+    public static final String ACTION_DISABLE_BUTTONS_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_DISABLE_BUTTONS_NOTIFY";
+    public static final String ACTION_DISABLE_ACCELEROMETER_NOTIFY = "com.adafruit.bluefruit_playground.ACTION_DISABLE_ACCELEROMETER_NOTIFY";
+
+    public static final String ACTION_PLAY_TONE = "com.adafruit.bluefruit_playground.ACTION_PLAY_TONE";
+    public static final String ACTION_SET_NEOPIXELS = "com.adafruit.bluefruit_playground.ACTION_SET_NEOPIXELS";
+
+
+    public static final String ACTION_PLAY_NEOPIXEL_ANIMATION = "com.adafruit.bluefruit_playground.ACTION_PLAY_NEOPIXEL_ANIMATION";
+    public static final String ACTION_SET_NEOPIXEL_ANIMATION_DELAY = "com.adafruit.bluefruit_playground.ACTION_SET_NEOPIXEL_ANIMATION_DELAY";
+    public static final String ACTION_STOP_NEOPIXEL_ANIMATION = "com.adafruit.bluefruit_playground.ACTION_STOP_NEOPIXEL_ANIMATION";
+
+    public static final String ACTION_LIGHT_DATA_AVAILABLE = "com.adafruit.bluefruit_playground.ACTION_LIGHT_DATA_AVAILABLE";
+    public static final String ACTION_ACCELEROMETER_DATA_AVAILABLE = "com.adafruit.bluefruit_playground.ACTION_ACCELEROMETER_DATA_AVAILABLE";
+    public static final String ACTION_BUTTONS_DATA_AVAILABLE = "com.adafruit.bluefruit_playground.ACTION_BUTTONS_DATA_AVAILABLE";
+    public static final String ACTION_TEMPERATURE_DATA_AVAILABLE = "com.adafruit.bluefruit_playground.ACTION_TEMPERATURE_DATA_AVAILABLE";
 
     // Stops scanning after 10 seconds.
     private static final long SCAN_PERIOD = 10000;

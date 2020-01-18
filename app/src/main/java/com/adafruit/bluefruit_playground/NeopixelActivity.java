@@ -46,7 +46,7 @@ import java.util.ArrayList;
 
 public class NeopixelActivity extends ModuleActivity implements CompoundButton.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
     public static final String TAG = NeopixelActivity.class.getSimpleName();
-    public static final String ACTION_SET_NEOPIXEL_OUTPUT = "com.foamyguy.bluefruit_playground.ACTION_SET_NEOPIXEL_OUTPUT";;
+    public static final String ACTION_SET_NEOPIXEL_OUTPUT = "com.adafruit.bluefruit_playground.ACTION_SET_NEOPIXEL_OUTPUT";;
     ViewPager colorPickerPager;
 
     ColorPickerAdapter colorPickerAdapter;
