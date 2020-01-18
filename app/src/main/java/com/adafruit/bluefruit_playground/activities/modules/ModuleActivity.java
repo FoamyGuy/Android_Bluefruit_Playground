@@ -1,8 +1,11 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities.modules;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+
+import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.activities.ModulesListActivity;
 
 public class ModuleActivity extends Activity {
 

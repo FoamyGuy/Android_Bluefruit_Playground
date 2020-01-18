@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities;
 
 import androidx.core.content.ContextCompat;
 
@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.adafruit.bluefruit_playground.R;
 
 
 public class MainActivity extends Activity {

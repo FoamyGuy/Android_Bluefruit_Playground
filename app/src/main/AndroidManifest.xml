@@ -23,45 +23,45 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".PairingHelpActivity"></activity>
+        <activity android:name=".activities.PairingHelpActivity"></activity>
         <activity
-            android:name=".HelpActivity"
+            android:name=".activities.HelpActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".activities.AboutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EnableSettingsActivity"
+            android:name=".activities.EnableSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ModuleActivity" />
+        <activity android:name=".activities.modules.ModuleActivity" />
         <activity
-            android:name=".NeopixelActivity"
+            android:name=".activities.modules.NeopixelActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".AccelerometerActivity"
+            android:name=".activities.modules.AccelerometerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ButtonsActivity"
+            android:name=".activities.modules.ButtonsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LightActivity"
+            android:name=".activities.modules.LightActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".TemperatureActivity"
+            android:name=".activities.modules.TemperatureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ModulesListActivity" />
+        <activity android:name=".activities.ModulesListActivity" />
         <activity
-            android:name=".ToneActivity"
+            android:name=".activities.modules.ToneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".PairingActivity"
+            android:name=".activities.PairingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -76,8 +76,8 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".MainActivity" />
-        <activity android:name=".PermissionActivity" />
+        <activity android:name=".activities.MainActivity" />
+        <activity android:name=".activities.PermissionActivity" />
     </application>
 
 </manifest>

@@ -1,6 +1,4 @@
-package com.adafruit.bluefruit_playground;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.adafruit.bluefruit_playground.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import static com.adafruit.bluefruit_playground.TextLinker.addLink;
+import com.adafruit.bluefruit_playground.R;
+
+import static com.adafruit.bluefruit_playground.ui.TextLinker.addLink;
 
 public class PairingHelpActivity extends Activity {
 

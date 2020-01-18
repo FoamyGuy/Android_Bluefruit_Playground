@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities.modules;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,10 +9,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 
+import com.adafruit.bluefruit_playground.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
+import com.adafruit.bluefruit_playground.activities.HelpActivity;
 
 public class ButtonsActivity extends ModuleActivity {
     private final String TAG = ButtonsActivity.class.getSimpleName();

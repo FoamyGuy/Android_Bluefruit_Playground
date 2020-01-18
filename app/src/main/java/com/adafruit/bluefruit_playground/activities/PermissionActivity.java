@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities;
 
 import android.Manifest;
 import android.app.Activity;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+
+import com.adafruit.bluefruit_playground.R;
 
 import androidx.core.app.ActivityCompat;
 

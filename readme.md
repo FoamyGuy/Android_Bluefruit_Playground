@@ -26,7 +26,8 @@ Current Known Issues / Todo list:
     
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading
-
+    - Double tap to reset camera angle
+    
 * Neopixel Module
 
     

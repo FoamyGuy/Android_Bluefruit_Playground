@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities.modules;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -14,6 +14,10 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.TextView;
+
+import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.R;
+import com.adafruit.bluefruit_playground.activities.HelpActivity;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;

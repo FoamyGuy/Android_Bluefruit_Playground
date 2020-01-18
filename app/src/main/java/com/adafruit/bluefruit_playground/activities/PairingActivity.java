@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities;
 
 import androidx.core.content.ContextCompat;
 
@@ -21,6 +21,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.R;
+import com.adafruit.bluefruit_playground.ui.ScanResultAdapter;
 
 public class PairingActivity extends Activity {
     private final String TAG = PairingActivity.class.getSimpleName();

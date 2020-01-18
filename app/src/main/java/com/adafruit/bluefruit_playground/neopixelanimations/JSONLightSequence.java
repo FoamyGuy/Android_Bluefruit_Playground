@@ -3,7 +3,7 @@ package com.adafruit.bluefruit_playground.neopixelanimations;
 import android.content.Context;
 import android.util.Log;
 
-import com.adafruit.bluefruit_playground.NeopixelActivity;
+import com.adafruit.bluefruit_playground.activities.modules.NeopixelActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

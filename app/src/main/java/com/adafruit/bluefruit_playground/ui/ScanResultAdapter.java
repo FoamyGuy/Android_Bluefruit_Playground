@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.ui;
 
 import android.bluetooth.le.ScanResult;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.adafruit.bluefruit_playground.R;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

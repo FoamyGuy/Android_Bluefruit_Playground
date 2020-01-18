@@ -1,16 +1,14 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.util.Linkify;
 import android.view.View;
 import android.widget.TextView;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import com.adafruit.bluefruit_playground.R;
 
-import static com.adafruit.bluefruit_playground.TextLinker.addLink;
+import static com.adafruit.bluefruit_playground.ui.TextLinker.addLink;
 
 public class AboutActivity extends Activity {
 

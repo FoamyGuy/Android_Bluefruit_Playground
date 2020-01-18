@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#009ee0"
-    tools:context=".NeopixelActivity">
+    tools:context=".activities.modules.NeopixelActivity">
 
     <TextView
         android:id="@+id/backTxt"

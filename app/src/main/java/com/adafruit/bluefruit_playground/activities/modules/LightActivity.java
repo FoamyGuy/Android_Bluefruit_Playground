@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities.modules;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,6 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.R;
+import com.adafruit.bluefruit_playground.activities.HelpActivity;
 
 
 public class LightActivity extends ModuleActivity {

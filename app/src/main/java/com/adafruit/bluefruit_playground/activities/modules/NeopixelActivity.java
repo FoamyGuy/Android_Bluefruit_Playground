@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.activities.modules;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -26,6 +26,9 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.R;
+import com.adafruit.bluefruit_playground.activities.HelpActivity;
 import com.adafruit.bluefruit_playground.colorutils.ColorConverter;
 import com.adafruit.bluefruit_playground.colorutils.RGBColor;
 import com.adafruit.bluefruit_playground.neopixelanimations.NeopixelSequence;

@@ -24,6 +24,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.adafruit.bluefruit_playground.activities.modules.NeopixelActivity;
 import com.adafruit.bluefruit_playground.neopixelanimations.JSONLightSequence;
 import com.adafruit.bluefruit_playground.neopixelanimations.NeopixelSequence;
 import com.adafruit.bluefruit_playground.neopixelanimations.PulseLightSequence;

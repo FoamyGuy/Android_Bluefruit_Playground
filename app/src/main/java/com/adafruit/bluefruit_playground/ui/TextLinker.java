@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.ui;
 
 import android.text.util.Linkify;
 import android.widget.TextView;

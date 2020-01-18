@@ -1,4 +1,6 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.ui;
+
+import com.adafruit.bluefruit_playground.R;
 
 public class RssiUI {
     private static int[] signalImgs = {
