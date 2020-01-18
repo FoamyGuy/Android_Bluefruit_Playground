@@ -11,7 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.activities.HelpActivity;
 

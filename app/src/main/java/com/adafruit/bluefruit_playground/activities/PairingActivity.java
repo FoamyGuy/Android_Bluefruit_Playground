@@ -22,7 +22,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.ui.ScanResultAdapter;
 

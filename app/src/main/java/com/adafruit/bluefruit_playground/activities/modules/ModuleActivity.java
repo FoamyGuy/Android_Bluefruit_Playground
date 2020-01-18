@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.activities.ModulesListActivity;
 
 public class ModuleActivity extends Activity {

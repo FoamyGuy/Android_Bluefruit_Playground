@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.activities.HelpActivity;
 

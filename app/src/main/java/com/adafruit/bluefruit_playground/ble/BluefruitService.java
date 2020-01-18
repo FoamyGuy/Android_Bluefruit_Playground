@@ -1,4 +1,4 @@
-package com.adafruit.bluefruit_playground;
+package com.adafruit.bluefruit_playground.ble;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -24,6 +24,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
 
+import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.activities.modules.NeopixelActivity;
 import com.adafruit.bluefruit_playground.neopixelanimations.JSONLightSequence;
 import com.adafruit.bluefruit_playground.neopixelanimations.NeopixelSequence;
@@ -87,9 +88,6 @@ public class BluefruitService extends Service {
     public static final int STATE_CONNECTED = 2;
     public static final int STATE_DISCOVERING = 3;
     public static final int STATE_SERVICES_DISCOVERED = 4;
-
-
-
 
     public static final int STATE_WRITING = 3;
     public static final int STATE_NOT_WRITING = 4;
@@ -382,11 +380,9 @@ public class BluefruitService extends Service {
                     connectionStatusIntent.putExtra("status", STATE_DISCONNECTED);
                     sendBroadcast(connectionStatusIntent);
                     connectionState = STATE_DISCONNECTED;
-
                 }
             }
         };
-
 
         registerReceiver(bluefruitReceiver, bluefruitReceiverFilter);
 
@@ -413,7 +409,6 @@ public class BluefruitService extends Service {
                     connectionStatusIntent = new Intent(ACTION_CONNECTION_STATUS);
                     connectionStatusIntent.putExtra("status", STATE_DISCOVERING);
                     sendBroadcast(connectionStatusIntent);
-
 
                 } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                     Intent connectionStatusIntent = new Intent(ACTION_CONNECTION_STATUS);
@@ -451,179 +446,6 @@ public class BluefruitService extends Service {
                     connectionStatusIntent.putExtra("status", STATE_SERVICES_DISCOVERED);
                     sendBroadcast(connectionStatusIntent);
 
-
-                    //for (BluetoothGattService service : gatt.getServices()) {
-                    //Log.d(TAG, String.valueOf(service.getUuid()));
-                    //Log.d(TAG, "service type: " + service.getType());
-
-
-                    // BUTTONS
-                            /*
-                            if (String.valueOf(service.getUuid()).equals("adaf0600-c332-42a8-93bd-25e905756cb8")){
-                                BluetoothGattCharacteristic buttons = service.getCharacteristic(UUID.fromString("adaf0601-c332-42a8-93bd-25e905756cb8"));
-                                //gatt.readCharacteristic(buttons);
-                                //gatt.setCharacteristicNotification(buttons, true);
-
-                                for (BluetoothGattDescriptor desc : buttons.getDescriptors()){
-                                    Log.d(TAG, "descriptor: " + desc.getUuid());
-                                    Log.d(TAG, "descriptor perm: " + desc.getPermissions());
-                                    //byte[] enable = {0x0001, 0x00};
-                                    boolean setValResult = desc.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                                    Log.d(TAG, "setValResult: " + setValResult);
-                                    boolean descWriteResult = gatt.writeDescriptor(desc);
-                                    //Log.d(TAG, "descriptor val : " + desc.getValue());
-                                    Log.d(TAG, "descriptor write result : " + descWriteResult);
-                                }
-
-                                handler.postDelayed(new Runnable(){
-                                    @Override
-                                    public void run() {
-
-                                        boolean listenResult = gatt.setCharacteristicNotification(buttons, true);
-                                        Log.d(TAG, "listenresult: "+ listenResult);
-                                        //gatt.setCharacteristicNotification(temp, true);
-                                        //Log.d(TAG, "temp bytes: " + temp.getFloatValue(BluetoothGattCharacteristic.FORMAT_FLOAT, 0));
-                                        //boolean readResult = gatt.readCharacteristic(temp);
-                                        //Log.d(TAG, "readResult: "+ readResult);
-                                    }
-                                }, 2000);
-                            }
-                            */
-
-                    // TONE
-                            /*
-                            if (String.valueOf(service.getUuid()).equals("adaf0c00-c332-42a8-93bd-25e905756cb8")){
-                                BluetoothGattCharacteristic tone = service.getCharacteristic(UUID.fromString("adaf0c01-c332-42a8-93bd-25e905756cb8"));
-                                char note = 440;
-                                //byte[] play_tone = {Character.valueOf(note).,Integer.valueOf(1000).byteValue()};
-                                //tone.
-
-                                byte[] duration = new byte[4]; // represents the note duration in ms as unsigned int
-                                long longDuration = 1000;
-                                duration[0] = (byte) ((longDuration & 0x00000000FF000000L) >> 24); // first byte of array contains highest significant bits, then shift these extracted FF bits to first two positions in preparation for coersion to Byte (which only adopts the first 8 bits)
-                                duration[1] = (byte) ((longDuration & 0x0000000000FF0000L) >> 16);
-                                duration[2] = (byte) ((longDuration & 0x000000000000FF00L) >> 8);
-                                duration[3] = (byte) (longDuration & 0x00000000000000FFL); // no shift needed
-
-                                //Log.d(TAG, "tone bytes: " + tone.getValue());
-                                ByteBuffer buffer = ByteBuffer.allocate(6);
-                                buffer.order(ByteOrder.LITTLE_ENDIAN);
-
-                                buffer.putChar(0,note);
-                                buffer.putInt(2, 300);
-
-
-                                Log.d(TAG, "note: " + Integer.valueOf(buffer.getChar(0)));
-                                Log.d(TAG, "duration: " + Integer.valueOf(buffer.getInt(2)));
-                                tone.setValue(buffer.array());
-                                //Log.d(TAG, "tone bytes: " + tone.getValue());
-                                //boolean setValResult = tone.setValue(440, BluetoothGattCharacteristic.FORMAT_UINT16, 0);
-                                //Log.d(TAG, "play_tone value written: " + setValResult);
-
-                                boolean writeResult = gatt.writeCharacteristic(tone);
-                                Log.d(TAG, "called writeCharacteristic: " + writeResult);
-
-                            }
-                            */
-
-
-                    // TEMPERATURE
-                            /*
-                            if (String.valueOf(service.getUuid()).equals("adaf0100-c332-42a8-93bd-25e905756cb8")){
-                                BluetoothGattCharacteristic period = service.getCharacteristic(UUID.fromString("adaf0001-c332-42a8-93bd-25e905756cb8"));
-                                BluetoothGattCharacteristic temp = service.getCharacteristic(UUID.fromString("adaf0101-c332-42a8-93bd-25e905756cb8"));
-
-                                //gatt.readCharacteristic(temp);
-                                for (BluetoothGattDescriptor desc : temp.getDescriptors()){
-                                    Log.d(TAG, "descriptor: " + desc.getUuid());
-                                    Log.d(TAG, "descriptor perm: " + desc.getPermissions());
-                                    //byte[] enable = {0x0001, 0x00};
-                                    boolean setValResult = desc.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                                    Log.d(TAG, "setValResult: " + setValResult);
-                                    boolean descWriteResult = gatt.writeDescriptor(desc);
-                                    //Log.d(TAG, "descriptor val : " + desc.getValue());
-                                    Log.d(TAG, "descriptor write result : " + descWriteResult);
-                                }
-
-                                handler.postDelayed(new Runnable(){
-                                    @Override
-                                    public void run() {
-                                        boolean listenResult = gatt.setCharacteristicNotification(temp, true);
-                                        Log.d(TAG, "listenresult: "+ listenResult);
-                                        //gatt.setCharacteristicNotification(temp, true);
-                                        //Log.d(TAG, "temp bytes: " + temp.getFloatValue(BluetoothGattCharacteristic.FORMAT_FLOAT, 0));
-                                        //boolean readResult = gatt.readCharacteristic(temp);
-                                        //Log.d(TAG, "readResult: "+ readResult);
-                                    }
-                                }, 2000);
-                                }
-                                */
-
-                    // LIGHT SENSOR
-                            /*
-                            if (String.valueOf(service.getUuid()).equals("adaf0300-c332-42a8-93bd-25e905756cb8")) {
-                                BluetoothGattCharacteristic period = service.getCharacteristic(UUID.fromString("adaf0001-c332-42a8-93bd-25e905756cb8"));
-                                BluetoothGattCharacteristic light = service.getCharacteristic(UUID.fromString("adaf0301-c332-42a8-93bd-25e905756cb8"));
-
-                                //gatt.readCharacteristic(temp);
-                                for (BluetoothGattDescriptor desc : light.getDescriptors()) {
-                                    Log.d(TAG, "descriptor: " + desc.getUuid());
-                                    Log.d(TAG, "descriptor perm: " + desc.getPermissions());
-                                    //byte[] enable = {0x0001, 0x00};
-                                    boolean setValResult = desc.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                                    Log.d(TAG, "setValResult: " + setValResult);
-                                    boolean descWriteResult = gatt.writeDescriptor(desc);
-                                    //Log.d(TAG, "descriptor val : " + desc.getValue());
-                                    Log.d(TAG, "descriptor write result : " + descWriteResult);
-                                }
-
-                                handler.postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        boolean listenResult = gatt.setCharacteristicNotification(light, true);
-                                        Log.d(TAG, "listenresult: " + listenResult);
-                                    }
-                                }, 2000);
-                            }
-                            */
-
-                    // ACCELEROMETER
-
-                            /*
-                            if (String.valueOf(service.getUuid()).equals("adaf0200-c332-42a8-93bd-25e905756cb8")) {
-                                BluetoothGattCharacteristic period = service.getCharacteristic(UUID.fromString("adaf0001-c332-42a8-93bd-25e905756cb8"));
-                                BluetoothGattCharacteristic accel = service.getCharacteristic(UUID.fromString("adaf0201-c332-42a8-93bd-25e905756cb8"));
-
-                                //gatt.readCharacteristic(temp);
-                                for (BluetoothGattDescriptor desc : accel.getDescriptors()) {
-                                    Log.d(TAG, "descriptor: " + desc.getUuid());
-                                    Log.d(TAG, "descriptor perm: " + desc.getPermissions());
-                                    //byte[] enable = {0x0001, 0x00};
-                                    boolean setValResult = desc.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
-                                    Log.d(TAG, "setValResult: " + setValResult);
-                                    boolean descWriteResult = gatt.writeDescriptor(desc);
-                                    //Log.d(TAG, "descriptor val : " + desc.getValue());
-                                    Log.d(TAG, "descriptor write result : " + descWriteResult);
-                                }
-
-                                handler.postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        boolean listenResult = gatt.setCharacteristicNotification(accel, true);
-                                        Log.d(TAG, "listenresult: " + listenResult);
-                                    }
-                                }, 2000);
-                            }*/
-
-                    //gatt.setCharacteristicNotification(temp, true);
-                    //Log.d(TAG, "period bytes: " + period.getValue());
-                    //boolean writeResult = period.setValue(100, BluetoothGattCharacteristic.FORMAT_SINT32, 0);
-                    //Log.d(TAG, "write result: " + writeResult);
-                    //Log.d(TAG, "period bytes: " + period.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT32, 0));
-
-
-                    //}
-
                 } else {
                     Log.w(TAG, "onServicesDiscovered received: " + status);
                 }
@@ -635,14 +457,6 @@ public class BluefruitService extends Service {
                                              BluetoothGattCharacteristic characteristic,
                                              int status) {
                 Log.d(TAG, "onCharacteristicRead status: " + status);
-                //Log.d(TAG, "char val: " + characteristic.getFloatValue(BluetoothGattCharacteristic.FORMAT_FLOAT, 0));
-                int intValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT32, 0);
-                long unsignedValue = intValue & 0xffffffffl;
-                Log.d(TAG, "char val: " + Long.toBinaryString(unsignedValue));
-
-                if (status == BluetoothGatt.GATT_SUCCESS) {
-                    //broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
-                }
             }
 
             @Override
@@ -684,6 +498,7 @@ public class BluefruitService extends Service {
                 //Log.d(TAG, "char val: " + characteristic.getFloatValue(BluetoothGattCharacteristic.FORMAT_SFLOAT, 0));
 
                 if (characteristic.getUuid().equals(BluefruitService.UUID_TEMP_CHARACTERISTIC)) {
+                    // https://stackoverflow.com/questions/42113986/android-bluetooth-le-read-float-characteristic
                     float curVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat();
                     Intent tempDataIntent = new Intent(ACTION_TEMPERATURE_DATA_AVAILABLE);
                     tempDataIntent.putExtra("temperature", curVal);
@@ -691,6 +506,7 @@ public class BluefruitService extends Service {
                     //Log.d(TAG, "char val: " + curVal);
                 }
                 if (characteristic.getUuid().equals(BluefruitService.UUID_LIGHT_CHARACTERISTIC)) {
+                    // https://stackoverflow.com/questions/42113986/android-bluetooth-le-read-float-characteristic
                     float curVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat();
                     Intent lightDataIntent = new Intent(ACTION_LIGHT_DATA_AVAILABLE);
                     lightDataIntent.putExtra("light", (int) curVal);
@@ -698,6 +514,7 @@ public class BluefruitService extends Service {
                     //Log.d(TAG, "char val: " + curVal);
                 }
                 if (characteristic.getUuid().equals(BluefruitService.UUID_BUTTONS_CHARACTERISTIC)) {
+                    // https://stackoverflow.com/questions/9854166/declaring-an-unsigned-int-in-java
                     int intValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT32, 0);
                     long unsignedValue = intValue & 0xffffffffl;
                     String stringValue = Long.toBinaryString(unsignedValue);
@@ -746,6 +563,8 @@ public class BluefruitService extends Service {
                 }
                 if (characteristic.getUuid().equals(BluefruitService.UUID_ACCELEROMETER_CHARACTERISTIC)) {
 
+                    //https://stackoverflow.com/questions/42113986/android-bluetooth-le-read-float-characteristic
+
                     float xVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat(0);
                     //Log.d(TAG, "x val: " + xVal);
                     float yVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat(4);
@@ -760,28 +579,6 @@ public class BluefruitService extends Service {
                     sendBroadcast(accelDataIntent);
                     //Log.d(TAG, "char val: " + curVal);
                 }
-                // https://stackoverflow.com/questions/42113986/android-bluetooth-le-read-float-characteristic
-                // for temp and light:
-                //float curVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat();
-                //Log.d(TAG, "char val: " + curVal);
-
-
-                // https://stackoverflow.com/questions/42113986/android-bluetooth-le-read-float-characteristic
-                // for accel:
-                //float xVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat(0);
-                //Log.d(TAG, "x val: " + xVal);
-                //float yVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat(4);
-                //Log.d(TAG, "y val: " + yVal);
-                //float zVal = ByteBuffer.wrap(characteristic.getValue()).order(ByteOrder.LITTLE_ENDIAN).getFloat(8);
-                //Log.d(TAG, "z val: " + zVal);
-
-
-                // https://stackoverflow.com/questions/9854166/declaring-an-unsigned-int-in-java
-                // for buttons:
-                //int intValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT32, 0);
-                //long unsignedValue = intValue & 0xffffffffl;
-                //Log.d(TAG, "char val: " + Long.toBinaryString(unsignedValue));
-
             }
 
             @Override
@@ -797,13 +594,10 @@ public class BluefruitService extends Service {
                 Log.d(TAG, "onDescriptorRead " + descriptor.getUuid() + " status: " + status);
             }
         };
-
-
     }
 
     private void enableCharacteristicNotifications(BluetoothGattCharacteristic characteristic, boolean enabled) {
         BluetoothGattDescriptor cccdDescriptor = characteristic.getDescriptor(UUID_CCCD);
-        //gatt.readCharacteristic(temp);
 
         Log.d(TAG, "descriptor: " + cccdDescriptor.getUuid());
         //Log.d(TAG, "descriptor perm: " + cccdDescriptor.getPermissions());
@@ -879,13 +673,6 @@ public class BluefruitService extends Service {
     private boolean playTone(int frequency, int duration) {
         char note = (char) frequency;
 
-        //byte[] durationBytes = new byte[4]; // represents the note duration in ms as unsigned int
-        //long longDuration = 1000;
-        //durationBytes[0] = (byte) ((longDuration & 0x00000000FF000000L) >> 24); // first byte of array contains highest significant bits, then shift these extracted FF bits to first two positions in preparation for coersion to Byte (which only adopts the first 8 bits)
-        //durationBytes[1] = (byte) ((longDuration & 0x0000000000FF0000L) >> 16);
-        //durationBytes[2] = (byte) ((longDuration & 0x000000000000FF00L) >> 8);
-        // durationBytes[3] = (byte) (longDuration & 0x00000000000000FFL); // no shift needed
-
         //Log.d(TAG, "tone bytes: " + tone.getValue());
         ByteBuffer buffer = ByteBuffer.allocate(6);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
@@ -893,13 +680,9 @@ public class BluefruitService extends Service {
         buffer.putChar(0, note);
         buffer.putInt(2, duration);
 
-
         Log.d(TAG, "note: " + Integer.valueOf(buffer.getChar(0)));
         Log.d(TAG, "duration: " + Integer.valueOf(buffer.getInt(2)));
         toneCharacteristic.setValue(buffer.array());
-        //Log.d(TAG, "tone bytes: " + tone.getValue());
-        //boolean setValResult = tone.setValue(440, BluetoothGattCharacteristic.FORMAT_UINT16, 0);
-        //Log.d(TAG, "play_tone value written: " + setValResult);
 
         boolean writeResult = bluetoothGatt.writeCharacteristic(toneCharacteristic);
         Log.d(TAG, "called writeCharacteristic: " + writeResult);
@@ -935,7 +718,6 @@ public class BluefruitService extends Service {
     }
 
     private boolean setNeopixels(JSONArray pixels_arr) {
-
         char index = 0;
         byte flags = 1;
 
@@ -986,15 +768,7 @@ public class BluefruitService extends Service {
         Log.d(TAG, "called writeCharacteristic: " + writeResult);
 
         return writeResult;
-        //Log.d(TAG, "note: " + Integer.valueOf(buffer.getChar(0)));
-        //Log.d(TAG, "duration: " + Integer.valueOf(buffer.getInt(2)));
-        //Log.d(TAG, "tone bytes: " + tone.getValue());
-        //boolean setValResult = tone.setValue(440, BluetoothGattCharacteristic.FORMAT_UINT16, 0);
-        //Log.d(TAG, "play_tone value written: " + setValResult);
-
     }
-
-
 
 
     private void scanLeDevice(final boolean enable) {
@@ -1028,7 +802,6 @@ public class BluefruitService extends Service {
         }
     }
 
-
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -1037,7 +810,6 @@ public class BluefruitService extends Service {
 
             bluetoothGatt.close();
         }
-
         unregisterReceiver(bluefruitReceiver);
     }
 }

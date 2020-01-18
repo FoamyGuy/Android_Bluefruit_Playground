@@ -72,7 +72,7 @@
         </activity>
 
         <service
-            android:name=".BluefruitService"
+            android:name=".ble.BluefruitService"
             android:enabled="true"
             android:exported="true" />
 

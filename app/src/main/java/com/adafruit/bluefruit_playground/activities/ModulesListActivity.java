@@ -19,7 +19,7 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.activities.modules.AccelerometerActivity;
 import com.adafruit.bluefruit_playground.activities.modules.ButtonsActivity;

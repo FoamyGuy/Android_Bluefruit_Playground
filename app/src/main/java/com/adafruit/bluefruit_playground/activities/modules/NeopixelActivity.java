@@ -26,7 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.adafruit.bluefruit_playground.BluefruitService;
+import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
 import com.adafruit.bluefruit_playground.activities.HelpActivity;
 import com.adafruit.bluefruit_playground.colorutils.ColorConverter;
