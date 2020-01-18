@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    tools:context=".AboutActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/back"
+        android:id="@+id/backTxt"
+        android:textColor="#FFFFFF"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/ic_back_arrow"
+        android:background="#009ee0"
+        android:onClick="backToPairing"
+        android:textSize="26sp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="@string/about_title"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/backTxt"
+        android:padding="8dp"
+
+        android:background="#0093d1"
+
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleTxt"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/aboutTxt"
+            android:text="@string/about_text"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:layout_below="@+id/backTxt"
+            android:padding="8dp"
+            android:gravity="center"
+
+
+            />
+
+    </ScrollView>
+
+</RelativeLayout>

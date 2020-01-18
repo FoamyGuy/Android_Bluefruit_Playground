@@ -23,36 +23,37 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".AboutActivity"></activity>
         <activity
-            android:name="com.adafruit.bluefruit_playground.EnableSettingsActivity"
+            android:name=".EnableSettingsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.adafruit.bluefruit_playground.ModuleActivity" />
+        <activity android:name=".ModuleActivity" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.NeopixelActivity"
+            android:name=".NeopixelActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.AccelerometerActivity"
+            android:name=".AccelerometerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.ButtonsActivity"
+            android:name=".ButtonsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.LightActivity"
+            android:name=".LightActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.TemperatureActivity"
+            android:name=".TemperatureActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name="com.adafruit.bluefruit_playground.ModulesListActivity" />
+        <activity android:name=".ModulesListActivity" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.ToneActivity"
+            android:name=".ToneActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.adafruit.bluefruit_playground.PairingActivity"
+            android:name=".PairingActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -63,12 +64,12 @@
         </activity>
 
         <service
-            android:name="com.adafruit.bluefruit_playground.BluefruitService"
+            android:name=".BluefruitService"
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name="com.adafruit.bluefruit_playground.MainActivity" />
-        <activity android:name="com.adafruit.bluefruit_playground.PermissionActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PermissionActivity" />
     </application>
 
 </manifest>

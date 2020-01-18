@@ -50,16 +50,14 @@
     <string name="tip2_action">Begin pairing</string>
 
 
-
     <!-- About -->
     <string name="about_title">About</string>
     <string name="about_app_name">Bluefruit Playground</string>
-    <string name="about_ios_text">Bluefruit Playground is designed for use with Circuit Playground Bluefruit, available for purchase from the Adafruit shop\n\nBefore you can use this app, you\'ll need to load the uf2 firmware file on your Circuit Playground Bluefruit.\n\n\nAcknowledgements\n\nPortions of this Software may utilize the following copyrighted material, the use of which is hereby acknowledged. \n\nFlexColorPicker\nCopyright &#169;&gt; 2018 Rastislav Mirek\nhttps://github.com/RastislavMirek/FlexColorPicker\n\nCharts\nCopyright &#169;&gt; 2016 Daniel Cohen Gindi&amp;Philipp Jahoda\nhttps://github.com/danielgindi/Charts\n\nActiveLabel\nCopyright &#169;&gt; 2015 Optonaut\nhttps://github.com/optonaut/ActiveLabel.swift\n\nMSWeakTimer\nCopyright &#169;&gt; 2013 MindSnacks\nhttps://github.com/mindsnacks/MSWeakTimer</string>
-    <string name="about_ios_link0_text">Adafruit shop</string>
-    <string name="about_ios_link0_url">https://www.adafruit.com/product/4333</string>
-    <string name="about_ios_link1_text">uf2 firmware file</string>
-    <string name="about_ios_link1_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
-
+    <string name="about_text">Bluefruit Playground is designed for use with Circuit Playground Bluefruit, available for purchase from the Adafruit shop\n\nBefore you can use this app, you\'ll need to load the uf2 firmware file on your Circuit Playground Bluefruit.\n-----\nAcknowledgements\n\nPortions of this Software may utilize the following copyrighted material, the use of which is hereby acknowledged. \n\nGraphView\nCopyright &#169;&gt; 2011\nJonas Gehring\nhttps://github.com/jjoe64/GraphView\n\nViewPagerIndicator\nCopyright &#169;&gt; 2011\nJake Wharton\nhttps://github.com/JakeWharton/ViewPagerIndicator\n\nColorPickerView\nCopyright &#169;&gt; 2017\nJaewoong Eum\nhttps://github.com/skydoves/ColorPickerView\n\nthree.js\nCopyright &#169;&gt; 2010\nMr.doob\nhttps://github.com/mrdoob/three.js\n-----\nThis app was created by:\nTim Cocks</string>
+    <string name="about_link0_text">Adafruit shop</string>
+    <string name="about_link0_url">https://www.adafruit.com/product/4333</string>
+    <string name="about_link1_text">uf2 firmware file</string>
+    <string name="about_link1_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
 
 
     <!-- Scanner -->
@@ -73,7 +71,7 @@
     <string name="scanner_peripheraldisconnected">Peripheral disconnected</string>
 
     <string name="scanner_searching">Finding Circuit Playground Bluefruit devices&#8230;</string>
-    <string name="scanner_press_to_search">Press refresh icon to scan&#8230;</string>
+    <string name="scanner_press_to_search">Tap here to scan&#8230;</string>
     <string name="scanner_subtitle">Select a Circuit Playground Bluefruit device to connect to:</string>
     <string name="scanner_unnamed">&lt;Unknown&gt;</string>
 
@@ -95,7 +93,6 @@
     <string name="scannerproblems_tip1_link_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
     <string name="scannerproblems_tip2_title">Reset Circuit Playground Bluefruit</string>
     <string name="scannerproblems_tip2_details">Try pressing the small Reset button near the center of the Circuit Playground Bluefruit.</string>
-
 
 
     <!-- Modules -->
@@ -128,7 +125,6 @@
     <string name="neopixels_colorwheel_brightness">Brightness</string>
 
 
-
     <!-- Light Sensor -->
     <string name="lightsensor_title">Light Sensor</string>
     <string name="lightsensor_help">Light Sensor mode allows you to view the amount of light detected by Circuit Playground Bluefruit’s built-in ALS-PT19 light sensor.\n\n• The current light level reading is displayed at the bottom of the screen. \n\n• Try shining a flashlight on the CPB and watch the values change in realtime</string>
@@ -145,7 +141,6 @@
     <string name="buttonstatus_panel_switch">Switch</string>
     <string name="buttonstatus_panel_button_a">Button A</string>
     <string name="buttonstatus_panel_button_b">Button B</string>
-
 
 
     <!-- Tone Generator -->
@@ -185,7 +180,7 @@
     <string name="dialog_notice">Notice</string>
     <string name="dialog_dontshowagain">Don\'t show again</string>
     <string name="dialog_done">Done</string>
-
+    <string name="back">Back</string>
 
 
 </resources>

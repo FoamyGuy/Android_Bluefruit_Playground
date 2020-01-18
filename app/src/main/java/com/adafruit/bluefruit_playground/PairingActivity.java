@@ -221,6 +221,12 @@ public class PairingActivity extends Activity {
         finish();
     }
 
+    public void startAboutActivity(View view) {
+        stopServiceOnStop = false;
+        Intent aboutIntent = new Intent(this, AboutActivity.class);
+        startActivity(aboutIntent);
+    }
+
     public void startScan(View view) {
         Intent requestScanIntent = new Intent(BluefruitService.ACTION_REQUEST_SCAN);
         sendBroadcast(requestScanIntent);
@@ -231,5 +237,11 @@ public class PairingActivity extends Activity {
 
     public void exit(View view) {
         finish();
+    }
+
+    public void scanningTxtClick(View view) {
+        if(scanningTxt.getText().toString().equals(getString(R.string.scanner_press_to_search))){
+            startScan(view);
+        }
     }
 }

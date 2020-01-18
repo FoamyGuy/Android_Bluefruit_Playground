@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/modules"
+        android:text="@string/modules_title"
         android:id="@+id/backTxt"
         android:textColor="#FFFFFF"
         android:paddingLeft="10dp"
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/titleTxt"
-        android:text="Tone Generator"
+        android:text="@string/tonegenerator_title"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"

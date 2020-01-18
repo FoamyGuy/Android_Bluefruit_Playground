@@ -32,7 +32,7 @@ public class AccelerometerActivity extends ModuleActivity {
     TextView xAngleTxt;
     TextView yAngleTxt;
     TextView zAngleTxt;
-    AccelerometerModelWebServer androidWebServer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,13 +46,6 @@ public class AccelerometerActivity extends ModuleActivity {
         xAngleTxt = findViewById(R.id.xAngleTxt);
         yAngleTxt = findViewById(R.id.yAngleTxt);
         zAngleTxt = findViewById(R.id.zAngleTxt);
-
-        /*AccelerometerModelWebServer androidWebServer = new AccelerometerModelWebServer(8000, this);
-        try {
-            androidWebServer.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
         WebView wv;
         WebView.setWebContentsDebuggingEnabled(true);
@@ -157,9 +150,6 @@ public class AccelerometerActivity extends ModuleActivity {
         sendBroadcast(i);
         Log.d(TAG, "sent disable accel notify");
 
-        if(androidWebServer != null) {
-            androidWebServer.stop();
-        }
 
         try {
             unregisterReceiver(accelerometerDataReceiver);
