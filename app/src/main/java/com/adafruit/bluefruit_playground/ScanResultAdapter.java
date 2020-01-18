@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -44,14 +45,15 @@ public class ScanResultAdapter extends ArrayAdapter<ScanResult> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         RelativeLayout row = (RelativeLayout) convertView;
         if(row == null){
-            row = (RelativeLayout) inflater.inflate(R.layout.row_scan_result, null);
+            row = (RelativeLayout) inflater.inflate(R.layout.row_scan_result, parent, false);
         }
 
-        TextView strengthTxt = row.findViewById(R.id.strengthTxt);
+        ImageView strengthImg = row.findViewById(R.id.strengthImg);
+
         TextView nameTxt = row.findViewById(R.id.nameTxt);
         TextView macTxt = row.findViewById(R.id.macTxt);
 
-        strengthTxt.setText(""+getItem(position).getRssi());
+        strengthImg.setImageResource(RssiUI.signalImage(getItem(position).getRssi()));
         nameTxt.setText(getItem(position).getDevice().getName());
         macTxt.setText(getItem(position).getDevice().getAddress());
 

@@ -51,7 +51,7 @@
             android:textSize="22sp"
             android:layout_below="@+id/backTxt"
             android:padding="8dp"
-            android:gravity="center"
+
 
 
             />
