@@ -251,12 +251,26 @@ public class BluefruitService extends Service {
                 String action = intent.getAction();
 
                 if (action.equals(ACTION_SET_NEOPIXELS)) {
-                    if (writingState == STATE_NOT_WRITING) {
-
-                        setNeopixels(intent);
-                    } else {
-                        neopixelActions.add(intent);
+                    if(animatingNeopixels){
+                        animatingNeopixels = false;
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (writingState == STATE_NOT_WRITING) {
+                                    setNeopixels(intent);
+                                } else {
+                                    neopixelActions.add(intent);
+                                }
+                            }
+                        }, 300);
+                    }else{
+                        if (writingState == STATE_NOT_WRITING) {
+                            setNeopixels(intent);
+                        } else {
+                            neopixelActions.add(intent);
+                        }
                     }
+
 
                 } else if (action.equals(ACTION_PLAY_TONE)) {
                     if (writingState == STATE_NOT_WRITING) {

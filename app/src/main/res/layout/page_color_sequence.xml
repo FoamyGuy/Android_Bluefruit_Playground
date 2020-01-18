@@ -108,7 +108,7 @@
         android:layout_toEndOf="@id/seekBarLbl"
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
-        android:progress="700"
-        android:max="700" />
+        android:progress="1000"
+        android:max="1000" />
 
 </RelativeLayout>
