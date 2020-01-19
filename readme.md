@@ -24,7 +24,7 @@ Current Known Issues / Todo list:
     - add reminder to EnableSettingsActivity to turn off the settings after user is done.
     
 * Accelerometer Module
-    - Accelerometer activity should hide the ugly webview loading
+    - Accelerometer activity should hide the webview loading
     - Double tap to reset camera angle
     
 * Neopixel Module
