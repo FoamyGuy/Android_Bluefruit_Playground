@@ -20,14 +20,6 @@ When you are done remember to disable Bluetooth and Location services if you are
 ---
 
 Current Known Issues / Todo list:
-* General
-    - add reminder to EnableSettingsActivity to turn off the settings after user is done.
-    
-* Accelerometer Module
-    - Accelerometer activity should hide the webview loading
-    - Double tap to reset camera angle
-    
-* Neopixel Module
 
     
 If you run across any trouble please make an issue.

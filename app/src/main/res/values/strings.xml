@@ -9,8 +9,8 @@
     <!-- General -->
 
     <string name="NSBluetoothAlwaysUsageDescription">This app needs access to Bluetooth to connect to Circuit Playground Bluefruit devices</string>
-    <string name="settings_detail_bluetooth">This app needs access to Bluetooth to connect to Circuit Playground Bluefruit devices.\n\nPlease press \"Okay\" and then turn on Bluetooth.</string>
-    <string name="settings_detail_location">Location Services should be enabled to scan bluetooth peripherals. \n\nPlease press \"Okay\" and turn the main location service switch then press the Back button.</string>
+    <string name="settings_detail_bluetooth">This app needs access to Bluetooth to connect to Circuit Playground Bluefruit devices.\n\nPlease press \"Okay\" and then turn on Bluetooth.\n\nRemember to disable it again when you\'re done to save battery.</string>
+    <string name="settings_detail_location">Location Services should be enabled to scan bluetooth peripherals. \n\nPlease press \"Okay\" and turn the main location service switch then press the Back button.\n\nRemember to disable it again when you\'re done to save battery.</string>
     <string name="okay">Okay</string>
     <string name="exit">Exit</string>
 
