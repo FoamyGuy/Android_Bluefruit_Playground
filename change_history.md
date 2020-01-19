@@ -1,5 +1,11 @@
+# DEBUG build v10
+### You should manually uninstall any version lower than v09 before installing v09 or higher see v09 change history for details. 
+### Settings -> Apps -> Bluefruit Playground -> Uninstall
+- Double tap to reset the camera view for the accelerometer 3D model.
+- Show loading indicator while the WebView and 3D model are loading.
+- Added reminders to disable bluetooth and location settings if they weren't enabled to begin with
+ 
 # DEBUG build v09
-### You should manually uninstall any previous version before installing this one... Settings -> Apps -> Bluefruit Playground -> Uninstall
 - package name changed to com.adafruit... Android system will see this as a different app than previous versions. Make sure to uninstall any previous ones before installing this one. Or else the system will allow you to install both and it'll be confusing.
 - Neo pixel animation speed slider has a larger range
 - About page implemented
