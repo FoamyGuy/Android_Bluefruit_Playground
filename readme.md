@@ -1,5 +1,5 @@
 # Bluefruit Playground app for Android
-### You should manually uninstall any version lower than v09 before installing v09 or higher see change_history.md for details 
+### You should manually uninstall any version lower than v09 before installing v09 or higher see [change_history.md](https://github.com/FoamyGuy/Android_Bluefruit_Playground/blob/master/change_history.md) for details 
 ### Settings -> Apps -> Bluefruit Playground -> Uninstall
 
 Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v09_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v09_DEBUG.apk)

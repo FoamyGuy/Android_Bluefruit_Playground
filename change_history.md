@@ -7,6 +7,9 @@
 - Utilizing strings.xml more
 - switching back to assets web loader for accelerometer activity
 - signal strength icons in the pairing activity
+- welcome activity
+- All strings implemented from strings.xml
+- pairing help page
 
 # DEBUG build v08
 - Changing the way neopixel animations work "under the hood". Now when it's set to the highest speed it will write the next animation frame as soon as the previous frame is finished writing. Lowering the speed setting adds extra delay from there. This could make the animations run a bit faster on some devices if they are able to write the BLE characteristic quicker. It will also solve the issue where the animations could sometimes keep running after you tried to turn them off with trashcan icon.
