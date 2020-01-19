@@ -30,7 +30,7 @@
 
 			import * as THREE from './three.module.js';
             //import * as tc from './TrackballControls.js';
-            import { TrackballControls } from './TrackballControls_orig.js';
+            import { TrackballControls } from './TrackballControls.js';
 
 			var container;
             var controls;
@@ -41,6 +41,7 @@
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
 
+			var lastClickTime = 0;
 
             var CPB_model, pivot;
             var $rotationHolder = document.getElementById("rotation-data-holder");
@@ -63,13 +64,13 @@
 				camera.lookAt(new THREE.Vector3(0,-0.25,20));
 				camera.zoom = 3;
 				camera.updateProjectionMatrix();
-                
+				setInterval(function(){
+                	console.log("camera rotation: " + camera.rotation.z + ", " + camera.rotation.y + ", " + camera.rotation.z);
+                }, 500);
                 
                 
 
 				// scene
-
-
 
 				scene = new THREE.Scene();
                 scene.background = new THREE.Color( 0x009ee0 );
@@ -83,7 +84,6 @@
                 
 				// BEGIN Clara.io JSON loader code
 				var objectLoader = new THREE.ObjectLoader();
-				//objectLoader.load( "models/json/teapot-claraio.json", function ( obj ) {
 				objectLoader.load( './CPB.dae.json', function ( obj ) {
                     CPB_model = obj
                     CPB_model.position.y = -2.45;
@@ -98,8 +98,19 @@
                     //controls = new tc.TrackballControls( camera , renderer.domElement);
                     controls = new TrackballControls( camera , renderer.domElement);
                     controls.rotateSpeed = 1.0;
-                    controls.zoomSpeed = 1.2;
-                    controls.panSpeed = 0.8;
+                    controls.zoomSpeed = 0.0;
+                    controls.panSpeed = 0.0;
+
+
+
+
+                    if(typeof Android !== "undefined" && Android !== null) {
+                    	setTimeout(function(){
+							Android.finishedLoading();
+						}, 600);
+					} else {
+						// nothing
+					}
 
 				} );
 				// END Clara.io JSON loader code
@@ -107,7 +118,15 @@
 				
 				container.appendChild( renderer.domElement );
 
-				
+				renderer.domElement.addEventListener('touchend', function(){
+					var now = new Date().getTime();
+					if(lastClickTime + 500 > now){
+						console.log("double");
+						controls.reset();
+					}
+					//console.log("mouseup");
+					lastClickTime = now;
+				});
 
 				//
 

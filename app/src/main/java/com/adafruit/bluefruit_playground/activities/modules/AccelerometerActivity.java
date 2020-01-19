@@ -9,12 +9,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.adafruit.bluefruit_playground.ble.BluefruitService;
 import com.adafruit.bluefruit_playground.R;
@@ -40,6 +43,7 @@ public class AccelerometerActivity extends ModuleActivity {
     TextView yAngleTxt;
     TextView zAngleTxt;
 
+    RelativeLayout webBlocker;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override
@@ -55,6 +59,7 @@ public class AccelerometerActivity extends ModuleActivity {
         yAngleTxt = findViewById(R.id.yAngleTxt);
         zAngleTxt = findViewById(R.id.zAngleTxt);
 
+        webBlocker = findViewById(R.id.webLoadingBlocker);
         WebView wv;
         WebView.setWebContentsDebuggingEnabled(true);
         wv = findViewById(R.id.modelWeb);
@@ -66,6 +71,7 @@ public class AccelerometerActivity extends ModuleActivity {
         wv.getSettings().setAllowUniversalAccessFromFileURLs(true);
         Log.d(TAG, "loading html");
 
+        wv.addJavascriptInterface(new WebAppInterface(this), "Android");
 
         final WebViewAssetLoader assetLoader = new WebViewAssetLoader.Builder()
                 .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(this))
@@ -166,6 +172,23 @@ public class AccelerometerActivity extends ModuleActivity {
         startActivity(helpIntent);
     }
 
+
+    public class WebAppInterface {
+        Context mContext;
+
+        /** Instantiate the interface and set the context */
+        WebAppInterface(Context c) {
+            mContext = c;
+        }
+
+        /** Show a toast from the web page */
+        @JavascriptInterface
+        public void finishedLoading() {
+            // hide the loading blocker
+            webBlocker.setVisibility(View.GONE);
+        }
+    }
+
     @Override
     protected void onStop() {
         super.onStop();
@@ -181,4 +204,7 @@ public class AccelerometerActivity extends ModuleActivity {
             e.printStackTrace();
         }
     }
+
+
+
 }

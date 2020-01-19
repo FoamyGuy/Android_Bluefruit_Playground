@@ -51,6 +51,23 @@
         android:id="@+id/modelWeb"
          />
 
+    <RelativeLayout
+        android:id="@+id/webLoadingBlocker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#009ee0"
+        android:layout_alignTop="@id/modelWeb"
+        android:layout_alignBottom="@id/modelWeb"
+        >
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminate="true"/>
+    </RelativeLayout>
+
+
 
     <RelativeLayout
         android:id="@+id/bottomPanel"
