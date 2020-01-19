@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.WelcomeActivity"
+    android:background="#009ee0"
+    >
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
+        android:text="@string/skip"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:padding="8dp"
+        android:layout_alignParentEnd="true"
+        android:onClick="gotoPairing"
+
+        />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/welcomePager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/titleTxt"
+        android:layout_above="@id/welcomePagerIndicator"/>
+
+    <com.viewpagerindicator.CirclePageIndicator
+        android:id="@+id/welcomePagerIndicator"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:fillColor="#FFFFFF"
+        android:layout_marginBottom="4dp"
+        app:strokeColor="#FFFFFF"
+        android:layout_marginTop="4dp"
+        android:layout_alignParentBottom="true"
+        />
+</RelativeLayout>

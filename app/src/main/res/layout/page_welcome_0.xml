@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009ee0"
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cpb_circuit"
+        android:layout_above="@+id/bottomPanel"
+        android:padding="40dp"
+        android:scaleType="centerInside"/>
+
+    <RelativeLayout
+        android:id="@+id/bottomPanel"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/bg_module_card"
+        android:padding="10dp"
+        android:layout_margin="6dp"
+        android:layout_alignParentBottom="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pageTitle"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:text="@string/tip0_title"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/pageDetail"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
+            android:gravity="center"
+            android:text="@string/tip0_detail"
+            android:layout_below="@id/pageTitle"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_blue_selector"
+            android:textSize="16sp"
+            android:text="@string/tip0_action"
+            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:onClick="gotoPage2"
+
+            />
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

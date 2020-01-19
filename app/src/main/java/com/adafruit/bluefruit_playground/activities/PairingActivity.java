@@ -12,12 +12,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -48,10 +50,26 @@ public class PairingActivity extends Activity {
 
     boolean stopServiceOnStop = true;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pairing);
+
+
+        SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEdit = prefs.edit();
+        boolean showWelcome = prefs.getBoolean("showWelcome", true);
+        Log.d(TAG, "showWelcome: " + showWelcome);
+        if (showWelcome){
+            prefsEdit.putBoolean("showWelcome", false);
+            prefsEdit.apply();
+            Intent welcomeIntent = new Intent(this, WelcomeActivity.class);
+            startActivity(welcomeIntent);
+            finish();
+            return;
+        }
+
 
         if (Build.VERSION.SDK_INT >= 23) {
             Log.d(TAG, "OS is greater than 23");

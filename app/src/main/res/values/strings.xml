@@ -46,7 +46,7 @@
     <string name="tip1_link_url">https://learn.adafruit.com/bluefruit-playground-app/firmware</string>
     <string name="tip1_action">Next</string>
     <string name="tip2_title">Discover</string>
-    <string name="tip2_detail">Once Circuit Playground Bluefruit is powered, place it near your iPhone and tap the button below.</string>
+    <string name="tip2_detail">Once Circuit Playground Bluefruit is powered, place it near your phone and tap the button below.</string>
     <string name="tip2_action">Begin pairing</string>
 
 
@@ -164,7 +164,6 @@
     <string name="accelerometer_panel_z_template">z: %s</string>
 
 
-
     <!-- Temperature -->
     <string name="temperature_title">Temperature</string>
     <string name="temperature_help">Temperature mode displays continuous temperature readings from Circuit Playground Bluefruit’s built-in thermistor. \n\n• Switch between Fahrenheit and Celsius units by tapping the °F/°C button in the lower right corner.\n\n• Previous temperature values are recorded and displayed in the graph at the bottom.\n\n• Try breathing hot air on the CPB and watch the values change in realtime</string>
@@ -189,6 +188,7 @@
     <string name="dialog_dontshowagain">Don\'t show again</string>
     <string name="dialog_done">Done</string>
     <string name="back">Back</string>
+    <string name="skip">Skip</string>
 
 
 </resources>

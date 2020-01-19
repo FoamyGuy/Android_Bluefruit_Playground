@@ -86,6 +86,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_blue_selector"
+        android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:text="@string/scanner_problems_action"
         android:layout_centerHorizontal="true"
