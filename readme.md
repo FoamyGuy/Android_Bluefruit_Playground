@@ -1,6 +1,8 @@
 # Bluefruit Playground app for Android
+### You should manually uninstall any version lower than v09 before installing v09 or higher see change_history.md for details 
+### Settings -> Apps -> Bluefruit Playground -> Uninstall
 
-Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v08_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v08_DEBUG.apk)
+Debug APK direct link: [https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v09_DEBUG.apk](https://github.com/FoamyGuy/Android_Bluefruit_Playground/raw/master/Bluefruit_Playground_v09_DEBUG.apk)
 
 [iOS App Learn Guide PDF](https://cdn-learn.adafruit.com/downloads/pdf/bluefruit-playground-app.pdf)
 
@@ -20,7 +22,6 @@ When you are done remember to disable Bluetooth and Location services if you are
 Current Known Issues / Todo list:
 * General
     - add reminder to EnableSettingsActivity to turn off the settings after user is done.
-    - welcome activity needs to be implemented.
     
 * Accelerometer Module
     - Accelerometer activity should hide the ugly webview loading
