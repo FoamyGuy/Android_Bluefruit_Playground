@@ -74,6 +74,7 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
     BroadcastReceiver pixelOutputReceiver;
 
+    Button colorSelectBtn;
 
 
     @Override
@@ -340,7 +341,7 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
                 // color picker
                 page = (RelativeLayout) inflater.inflate(R.layout.page_color_picker, container, false);
 
-                Button colorSelectBtn = page.findViewById(R.id.colorSelectBtn);
+                colorSelectBtn = page.findViewById(R.id.colorSelectBtn);
                 //ColorPicker picker = (ColorPicker) page.findViewById(R.id.picker);
                 TextView colorTxt = page.findViewById(R.id.colorTxt);
                 //SaturationBar sBar = page.findViewById(R.id.saturationbar);
@@ -374,10 +375,18 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
                         Color.RGBToHSV(envelope.getArgb()[1],envelope.getArgb()[2],envelope.getArgb()[3], hsv);
                         hsv[2] = 1.0f;
                         int convertedColor = Color.HSVToColor(hsv);*/
+                        Log.d(TAG, "" + brightnessSlideBar.getSelectedX());
+                        if(brightnessSlideBar.getSelectedX() < 52){
+                            brightnessSlideBar.updateSelectorX(52);
 
-                        colorSelectBtn.setBackgroundColor(envelope.getColor());
-                        colorTxt.setText("#" + envelope.getHexCode().substring(2));
+                            colorSelectBtn.setBackgroundColor(colorPickerView.getColor());
+                            colorTxt.setText(ColorConverter.intToHex(colorPickerView.getColor()));
 
+                        }else {
+                            colorSelectBtn.setBackgroundColor(envelope.getColor());
+                            colorTxt.setText("#" + envelope.getHexCode().substring(2));
+                            setNeopixelColors(colorSelectBtn);
+                        }
                     }
                 });
 

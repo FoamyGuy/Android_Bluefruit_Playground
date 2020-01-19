@@ -148,6 +148,8 @@ public class BluefruitService extends Service {
 
     ArrayList<Intent> neopixelActions;
 
+    Intent nextNeopixelAction;
+
     boolean animatingNeopixels;
 
     NeopixelSequence curSequence;
@@ -266,7 +268,8 @@ public class BluefruitService extends Service {
                         if (writingState == STATE_NOT_WRITING) {
                             setNeopixels(intent);
                         } else {
-                            neopixelActions.add(intent);
+                            //neopixelActions.add(intent);
+                            nextNeopixelAction = intent;
                         }
                     }
 
@@ -484,9 +487,13 @@ public class BluefruitService extends Service {
                         }
                     }
 
-                    if (neopixelActions.size() > 0){
+                    /*if (neopixelActions.size() > 0){
                         setNeopixels(neopixelActions.get(0));
                         neopixelActions.remove(0);
+                    }*/
+                    if(nextNeopixelAction != null){
+                        setNeopixels(nextNeopixelAction);
+                        nextNeopixelAction = null;
                     }
                 }
             }
