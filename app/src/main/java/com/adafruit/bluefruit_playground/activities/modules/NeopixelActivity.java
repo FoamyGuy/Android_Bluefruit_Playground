@@ -76,6 +76,8 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
     Button colorSelectBtn;
 
+    ColorPickerView colorPickerView;
+    BrightnessSlideBar brightnessSlideBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,12 +92,38 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
 
 
         colorPickerAdapter = new ColorPickerAdapter(this);
+
+
         colorPickerPager.setAdapter(colorPickerAdapter);
         colorPickerPager.addOnPageChangeListener(this);
         indicator.setViewPager(colorPickerPager);
 
         selectAllImg = findViewById(R.id.selectAllBtn);
         unselectAllImg = findViewById(R.id.clearBtn);
+
+
+        colorPickerPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 2){
+                    Log.d(TAG, "starting x " + brightnessSlideBar.getSelectedX());
+                    brightnessSlideBar.setSelectorPosition(0.25f);
+                    Log.d(TAG, "after x " + brightnessSlideBar.getSelectedX());
+
+                    colorPickerView.setSelectorPoint(250, 0);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
@@ -363,8 +391,8 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
                 });*/
 
 
-                BrightnessSlideBar brightnessSlideBar = page.findViewById(R.id.brightnessSlide);
-                ColorPickerView colorPickerView = page.findViewById(R.id.colorPickerView);
+                brightnessSlideBar = page.findViewById(R.id.brightnessSlide);
+                colorPickerView = page.findViewById(R.id.colorPickerView);
                 colorPickerView.attachBrightnessSlider(brightnessSlideBar);
 
                 colorPickerView.setColorListener(new ColorEnvelopeListener() {
@@ -376,16 +404,19 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
                         hsv[2] = 1.0f;
                         int convertedColor = Color.HSVToColor(hsv);*/
                         Log.d(TAG, "" + brightnessSlideBar.getSelectedX());
-                        if(brightnessSlideBar.getSelectedX() < 52){
-                            brightnessSlideBar.updateSelectorX(52);
 
-                            colorSelectBtn.setBackgroundColor(colorPickerView.getColor());
-                            colorTxt.setText(ColorConverter.intToHex(colorPickerView.getColor()));
+                        if(colorPickerPager.getCurrentItem()==2) {
+                            if (brightnessSlideBar.getSelectedX() < 52) {
+                                brightnessSlideBar.updateSelectorX(52);
 
-                        }else {
-                            colorSelectBtn.setBackgroundColor(envelope.getColor());
-                            colorTxt.setText("#" + envelope.getHexCode().substring(2));
-                            setNeopixelColors(colorSelectBtn);
+                                colorSelectBtn.setBackgroundColor(colorPickerView.getColor());
+                                colorTxt.setText(ColorConverter.intToHex(colorPickerView.getColor()));
+
+                            } else {
+                                colorSelectBtn.setBackgroundColor(envelope.getColor());
+                                colorTxt.setText("#" + envelope.getHexCode().substring(2));
+                                setNeopixelColors(colorSelectBtn);
+                            }
                         }
                     }
                 });
@@ -578,7 +609,7 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
     @Override
     protected void onStop() {
         super.onStop();
-
+        turnOffNeopixels(null);
         try {
             unregisterReceiver(pixelOutputReceiver);
         } catch (IllegalArgumentException e) {

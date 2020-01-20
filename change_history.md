@@ -1,6 +1,10 @@
-# DEBUG build v11
+# DEBUG build v12
 ### You should manually uninstall any version lower than v09 before installing v09 or higher see v09 change history for details. 
 ### Settings -> Apps -> Bluefruit Playground -> Uninstall
+- default to 30% brightness on color picker.
+
+
+# DEBUG build v11
 - change neo pixel color as soon as user selects with the color picker instead of waiting.
 
 
