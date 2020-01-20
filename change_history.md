@@ -3,7 +3,7 @@
 ### Settings -> Apps -> Bluefruit Playground -> Uninstall
 - default to 30% brightness on color picker and color grid.
 - don't deselect the pixels when the sequence page is selected.
-
+- turn off neopixels when the neopixel module closes
 
 # DEBUG build v11
 - change neo pixel color as soon as user selects with the color picker instead of waiting.
