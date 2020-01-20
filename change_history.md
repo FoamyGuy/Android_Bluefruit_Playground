@@ -1,6 +1,10 @@
-# DEBUG build v10
+# DEBUG build v11
 ### You should manually uninstall any version lower than v09 before installing v09 or higher see v09 change history for details. 
 ### Settings -> Apps -> Bluefruit Playground -> Uninstall
+- change neo pixel color as soon as user selects with the color picker instead of waiting.
+
+
+# DEBUG build v10
 - Double tap to reset the camera view for the accelerometer 3D model.
 - Show loading indicator while the WebView and 3D model are loading.
 - Added reminders to disable bluetooth and location settings if they weren't enabled to begin with
