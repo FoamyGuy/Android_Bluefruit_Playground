@@ -102,29 +102,6 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
         unselectAllImg = findViewById(R.id.clearBtn);
 
 
-        colorPickerPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position == 2){
-                    Log.d(TAG, "starting x " + brightnessSlideBar.getSelectedX());
-                    brightnessSlideBar.setSelectorPosition(0.25f);
-                    Log.d(TAG, "after x " + brightnessSlideBar.getSelectedX());
-
-                    colorPickerView.setSelectorPoint(250, 0);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
         DisplayMetrics displayMetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         int height = displayMetrics.heightPixels;
@@ -286,7 +263,13 @@ public class NeopixelActivity extends ModuleActivity implements CompoundButton.O
         }else if (position == 0 ){
             selectAllImg.setVisibility(View.INVISIBLE);
             unselectAllImg.setVisibility(View.INVISIBLE);
-            clearPixelSelection(null);
+            //clearPixelSelection(null);
+        }else if (position == 2){
+            Log.d(TAG, "starting x " + brightnessSlideBar.getSelectedX());
+            brightnessSlideBar.setSelectorPosition(0.25f);
+            Log.d(TAG, "after x " + brightnessSlideBar.getSelectedX());
+
+            colorPickerView.setSelectorPoint(250, 0);
         }
 
     }

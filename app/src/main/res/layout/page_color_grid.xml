@@ -173,7 +173,7 @@
         android:progressDrawable="@drawable/transparent"
         android:thumb="@drawable/custom_thumb"
         android:background="@drawable/bw_gradient"
-
+        android:progress="30"
         android:layout_margin="10dp"
 
         android:max="99"/>

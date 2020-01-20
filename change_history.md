@@ -1,7 +1,8 @@
 # DEBUG build v12
 ### You should manually uninstall any version lower than v09 before installing v09 or higher see v09 change history for details. 
 ### Settings -> Apps -> Bluefruit Playground -> Uninstall
-- default to 30% brightness on color picker.
+- default to 30% brightness on color picker and color grid.
+- don't deselect the pixels when the sequence page is selected.
 
 
 # DEBUG build v11
